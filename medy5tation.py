@@ -19,14 +19,14 @@ def set_page_styling():
     # CDN Icons
     st.markdown('<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">', unsafe_allow_html=True)
     
-    # Custom CSS dengan background putih cerah dan kontras tajam
+    # Custom CSS: Perpaduan Background Putih dengan Aksen Biru Tua (Deep Navy)
     custom_css = """
         <style>
         @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700;800&family=Satisfy&display=swap');
 
         .stApp {
             background-color: #ffffff !important;
-            color: #1e293b !important;
+            color: #0f172a !important;
             font-family: 'Kanit', sans-serif !important;
         }
 
@@ -42,11 +42,11 @@ def set_page_styling():
             border-radius: 12px;
             display: block;
             margin: 0 auto;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 4px 15px rgba(10, 25, 47, 0.12);
         }
         .cursive-title {
             font-family: 'Satisfy', cursive !important;
-            color: #e11d48 !important;
+            color: #0043a8 !important;
             font-size: 2.8rem;
             line-height: 1.1;
             margin: 0;
@@ -54,7 +54,7 @@ def set_page_styling():
         }
         .cursive-subtitle {
             font-family: 'Satisfy', cursive !important;
-            color: #059669 !important;
+            color: #0284c7 !important;
             font-size: 2.2rem;
             line-height: 1.1;
             margin: 0;
@@ -63,10 +63,10 @@ def set_page_styling():
         .brand-subtitle {
             font-size: 0.95rem;
             letter-spacing: 4px;
-            color: #64748b;
+            color: #1e3a8a;
             margin-top: 8px;
             margin-bottom: 20px;
-            font-weight: 600;
+            font-weight: 700;
         }
 
         /* Highlight Pill Bar */
@@ -77,11 +77,11 @@ def set_page_styling():
             margin-bottom: 25px;
             flex-wrap: wrap;
             gap: 12px;
-            background: #f8fafc;
-            border: 1px solid #e2e8f0;
+            background: #f0f7ff;
+            border: 1.5px solid #bfdbfe;
             border-radius: 16px;
             padding: 14px 10px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+            box-shadow: 0 4px 12px rgba(30, 58, 138, 0.05);
         }
         .feature-item {
             display: flex;
@@ -90,7 +90,7 @@ def set_page_styling():
             gap: 4px;
         }
 
-        /* Kartu Layanan Warna Variatif Versi Light */
+        /* Kartu Layanan dengan Dasar Biru Tua / Aksen Navy */
         .card-box {
             border-radius: 14px;
             padding: 18px;
@@ -103,17 +103,21 @@ def set_page_styling():
             transform: translateY(-3px);
         }
         
+        .card-navy {
+            border: 2px solid #002d72;
+            box-shadow: 0 6px 20px rgba(0, 45, 114, 0.12);
+        }
         .card-crimson {
-            border: 2px solid #f43f5e;
-            box-shadow: 0 6px 20px rgba(244, 63, 94, 0.12);
+            border: 2px solid #e11d48;
+            box-shadow: 0 6px 20px rgba(225, 29, 72, 0.12);
         }
         .card-cyan {
             border: 2px solid #0284c7;
             box-shadow: 0 6px 20px rgba(2, 132, 199, 0.12);
         }
         .card-purple {
-            border: 2px solid #9333ea;
-            box-shadow: 0 6px 20px rgba(147, 51, 234, 0.12);
+            border: 2px solid #6366f1;
+            box-shadow: 0 6px 20px rgba(99, 102, 241, 0.12);
         }
         .card-amber {
             border: 2px solid #d97706;
@@ -123,12 +127,9 @@ def set_page_styling():
             border: 2px solid #059669;
             box-shadow: 0 6px 20px rgba(5, 150, 105, 0.12);
         }
-        .card-pink {
-            border: 2px solid #db2777;
-            box-shadow: 0 6px 20px rgba(219, 39, 119, 0.12);
-        }
 
-        .price-badge-crimson { color: #f43f5e; font-size: 2.3rem; font-weight: 800; line-height: 1; }
+        .price-badge-navy { color: #002d72; font-size: 2.3rem; font-weight: 800; line-height: 1; }
+        .price-badge-crimson { color: #e11d48; font-size: 2.3rem; font-weight: 800; line-height: 1; }
         .price-badge-cyan { color: #0284c7; font-size: 2.3rem; font-weight: 800; line-height: 1; }
         .price-badge-amber { color: #d97706; font-size: 2.3rem; font-weight: 800; line-height: 1; }
 
@@ -144,7 +145,7 @@ def set_page_styling():
         /* Game Item Badge */
         .game-badge {
             background: #f8fafc;
-            border: 1px solid #e2e8f0;
+            border: 1px solid #cbd5e1;
             border-radius: 8px;
             padding: 8px 12px;
             margin-bottom: 8px;
@@ -155,11 +156,11 @@ def set_page_styling():
             transition: all 0.2s;
         }
         .game-badge:hover {
-            border-color: #f43f5e;
-            background: #fff1f2;
+            border-color: #002d72;
+            background: #eff6ff;
         }
         .game-num {
-            color: #e11d48;
+            color: #0043a8;
             font-weight: 800;
             font-size: 0.85rem;
             min-width: 28px;
@@ -191,7 +192,7 @@ def set_page_styling():
         .btn-ig { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); color: white !important; }
         .btn-yt { background: linear-gradient(135deg, #FF0000, #cc0000); color: white !important; }
 
-        /* Custom Tabs Styling untuk Tema Terang */
+        /* Custom Tabs Styling: Aksen Biru Tua */
         div[data-baseweb="tab-list"] {
             gap: 8px;
             justify-content: center;
@@ -200,15 +201,16 @@ def set_page_styling():
         div[data-baseweb="tab"] {
             border-radius: 8px !important;
             padding: 8px 20px !important;
-            font-weight: 600 !important;
+            font-weight: 700 !important;
             background-color: #f1f5f9 !important;
-            color: #475569 !important;
-            border: 1px solid #e2e8f0 !important;
+            color: #1e3a8a !important;
+            border: 1.5px solid #cbd5e1 !important;
         }
         div[data-baseweb="tab"][aria-selected="true"] {
-            background-color: #e11d48 !important;
+            background-color: #002d72 !important;
             color: white !important;
-            border-color: #e11d48 !important;
+            border-color: #002d72 !important;
+            box-shadow: 0 4px 12px rgba(0, 45, 114, 0.25) !important;
         }
         </style>
     """
@@ -283,15 +285,15 @@ def main():
         else:
             st.markdown('''
                 <div class="brand-container">
-                    <i class="bi bi-controller" style="font-size: 3.2rem; color: #e11d48;"></i>
-                    <h1 style="letter-spacing: 4px; margin: 0; font-size: 3rem; color: #0f172a;">MEDY5TATION</h1>
+                    <i class="bi bi-controller" style="font-size: 3.2rem; color: #002d72;"></i>
+                    <h1 style="letter-spacing: 4px; margin: 0; font-size: 3rem; color: #002d72;">MEDY5TATION</h1>
                     <div class="brand-subtitle">PLAY MORE • GAME TOGETHER</div>
                 </div>
             ''', unsafe_allow_html=True)
 
     with col_h3:
         st.markdown('''
-            <div style="text-align: right; color: #64748b; font-size: 0.85rem; margin-bottom: 8px;">
+            <div style="text-align: right; color: #1e3a8a; font-size: 0.85rem; margin-bottom: 8px;">
                 <b>PS4 &bull; PS3 &bull; SWITCH &bull; ANDROID</b>
             </div>
             <p class="cursive-subtitle">Game<br>Tanpa<br>Batas</p>
@@ -300,11 +302,11 @@ def main():
     # -- BAR FITUR UTAMA --
     st.markdown('''
         <div class="feature-bar">
-            <div class="feature-item"><i class="bi bi-disc" style="font-size: 1.6rem; color: #e11d48;"></i><small style="color:#334155; font-weight:700;">GAME ORIGINAL</small></div>
-            <div class="feature-item"><i class="bi bi-cloud-arrow-down" style="font-size: 1.6rem; color: #0284c7;"></i><small style="color:#334155; font-weight:700;">PATCH SUB INDO</small></div>
-            <div class="feature-item"><i class="bi bi-device-hdd" style="font-size: 1.6rem; color: #9333ea;"></i><small style="color:#334155; font-weight:700;">HDD FULL GAME</small></div>
-            <div class="feature-item"><i class="bi bi-gear-wide-connected" style="font-size: 1.6rem; color: #d97706;"></i><small style="color:#334155; font-weight:700;">INSTAL LANGSUNG</small></div>
-            <div class="feature-item"><i class="bi bi-shield-check" style="font-size: 1.6rem; color: #059669;"></i><small style="color:#334155; font-weight:700;">AMAN & TERPERCAYA</small></div>
+            <div class="feature-item"><i class="bi bi-disc" style="font-size: 1.6rem; color: #002d72;"></i><small style="color:#002d72; font-weight:800;">GAME ORIGINAL</small></div>
+            <div class="feature-item"><i class="bi bi-cloud-arrow-down" style="font-size: 1.6rem; color: #0284c7;"></i><small style="color:#002d72; font-weight:800;">PATCH SUB INDO</small></div>
+            <div class="feature-item"><i class="bi bi-device-hdd" style="font-size: 1.6rem; color: #6366f1;"></i><small style="color:#002d72; font-weight:800;">HDD FULL GAME</small></div>
+            <div class="feature-item"><i class="bi bi-gear-wide-connected" style="font-size: 1.6rem; color: #d97706;"></i><small style="color:#002d72; font-weight:800;">INSTAL LANGSUNG</small></div>
+            <div class="feature-item"><i class="bi bi-shield-check" style="font-size: 1.6rem; color: #059669;"></i><small style="color:#002d72; font-weight:800;">AMAN & TERPERCAYA</small></div>
         </div>
     ''', unsafe_allow_html=True)
 
@@ -327,37 +329,37 @@ def main():
                     <div class="service-title" style="color: #0284c7;">VIA DRIVE</div>
                     <div class="price-badge-cyan">15K</div>
                     <small style="color: #64748b; font-weight:700;">PER GAME</small>
-                    <p style="font-size: 0.82rem; color: #475569; margin-top: 14px;">Patch Sub Indo & Link Download sesuai CUSA game</p>
+                    <p style="font-size: 0.82rem; color: #334155; margin-top: 14px;">Patch Sub Indo & Link Download sesuai CUSA game</p>
                 </div>
             ''', unsafe_allow_html=True)
 
         with p2:
             st.markdown('''
                 <div class="card-box card-crimson" style="text-align: center;">
-                    <i class="bi bi-box-arrow-in-down" style="font-size: 2rem; color: #f43f5e;"></i>
-                    <div class="service-title" style="color: #f43f5e;">PKG & INSTAL DI PS</div>
+                    <i class="bi bi-box-arrow-in-down" style="font-size: 2rem; color: #e11d48;"></i>
+                    <div class="service-title" style="color: #e11d48;">PKG & INSTAL DI PS</div>
                     <div class="price-badge-crimson">25K</div>
                     <small style="color: #64748b; font-weight:700;">PER GAME</small>
-                    <div style="margin-top: 10px; background: linear-gradient(90deg, #f43f5e, #be123c); padding: 5px; border-radius: 6px; font-weight: 700; font-size: 0.85rem; color: white;">
+                    <div style="margin-top: 10px; background: linear-gradient(90deg, #002d72, #0284c7); padding: 5px; border-radius: 6px; font-weight: 700; font-size: 0.85rem; color: white;">
                         PROMO: 3 GAME 65K
                     </div>
-                    <small style="color: #64748b; display: block; margin-top: 6px; font-weight:600;">Lokasi Palembang</small>
+                    <small style="color: #1e3a8a; display: block; margin-top: 6px; font-weight:700;">Lokasi Palembang</small>
                 </div>
             ''', unsafe_allow_html=True)
 
         with p3:
             st.markdown('''
-                <div class="card-box card-purple" style="text-align: center;">
-                    <i class="bi bi-hdd-network" style="font-size: 2rem; color: #9333ea;"></i>
-                    <div class="service-title" style="color: #9333ea;">HDD FULL GAME (PKG/PNP)</div>
+                <div class="card-box card-navy" style="text-align: center;">
+                    <i class="bi bi-hdd-network" style="font-size: 2rem; color: #002d72;"></i>
+                    <div class="service-title" style="color: #002d72;">HDD FULL GAME (PKG/PNP)</div>
                     <div style="display: flex; justify-content: space-around; margin-top: 12px;">
                         <div>
-                            <span style="background:#f3e8ff; color:#9333ea; border: 1px solid #d8b4fe; padding:3px 8px; border-radius:4px; font-size:0.75rem; font-weight:800;">500GB</span>
-                            <div style="color:#9333ea; font-size:1.6rem; font-weight:800; margin-top:4px;">350RB</div>
+                            <span style="background:#eff6ff; color:#002d72; border: 1.5px solid #bfdbfe; padding:3px 8px; border-radius:4px; font-size:0.75rem; font-weight:800;">500GB</span>
+                            <div style="color:#002d72; font-size:1.6rem; font-weight:800; margin-top:4px;">350RB</div>
                         </div>
                         <div>
-                            <span style="background:#f3e8ff; color:#9333ea; border: 1px solid #d8b4fe; padding:3px 8px; border-radius:4px; font-size:0.75rem; font-weight:800;">1TB</span>
-                            <div style="color:#9333ea; font-size:1.6rem; font-weight:800; margin-top:4px;">550RB</div>
+                            <span style="background:#eff6ff; color:#002d72; border: 1.5px solid #bfdbfe; padding:3px 8px; border-radius:4px; font-size:0.75rem; font-weight:800;">1TB</span>
+                            <div style="color:#002d72; font-size:1.6rem; font-weight:800; margin-top:4px;">550RB</div>
                         </div>
                     </div>
                     <small style="color: #64748b; display: block; margin-top: 8px; font-weight:600;">Plug and Play / Siap Main</small>
@@ -404,11 +406,11 @@ def main():
 
         with s3:
             st.markdown('''
-                <div class="card-box card-pink">
+                <div class="card-box card-purple">
                     <div style="display: flex; align-items: center; gap: 10px;">
-                        <i class="bi bi-joystick" style="font-size: 1.8rem; color: #db2777;"></i>
+                        <i class="bi bi-joystick" style="font-size: 1.8rem; color: #6366f1;"></i>
                         <div>
-                            <div class="service-title" style="color: #db2777; margin: 0;">SERVIS STIK PS4</div>
+                            <div class="service-title" style="color: #6366f1; margin: 0;">SERVIS STIK PS4</div>
                             <small style="color: #64748b; font-weight: 700;">Diagnosa Cepat & Rapi</small>
                         </div>
                     </div>
@@ -442,7 +444,7 @@ def main():
                         st.markdown(f'''
                             <div class="game-badge">
                                 <span class="game-num">#{actual_idx}</span>
-                                <span style="color:#1e293b; font-weight:600;">{filtered_games[i]}</span>
+                                <span style="color:#0f172a; font-weight:600;">{filtered_games[i]}</span>
                             </div>
                         ''', unsafe_allow_html=True)
 
@@ -452,15 +454,15 @@ def main():
         b1, b2 = st.columns(2)
         with b1:
             st.markdown('''
-                <div class="card-box card-crimson">
-                    <div class="service-title" style="color: #f43f5e; font-size: 1.1rem;">
+                <div class="card-box card-navy">
+                    <div class="service-title" style="color: #002d72; font-size: 1.1rem;">
                         <i class="bi bi-dribbble"></i> UPDATE BOLA PS4 HEN (SUMMER 2027)
                     </div>
             ''', unsafe_allow_html=True)
             for i, up in enumerate(PS4_HEN_UPDATES):
                 st.markdown(f'''
-                    <div style="background: #fff1f2; border: 1px solid #fecdd3; padding: 10px 14px; border-radius: 8px; margin-bottom: 8px; font-size: 0.88rem; color: #1e293b;">
-                        <b style="color: #e11d48;">{i+1}.</b> {up}
+                    <div style="background: #f0f7ff; border: 1px solid #bfdbfe; padding: 10px 14px; border-radius: 8px; margin-bottom: 8px; font-size: 0.88rem; color: #002d72; font-weight:600;">
+                        <b style="color: #0043a8;">{i+1}.</b> {up}
                     </div>
                 ''', unsafe_allow_html=True)
             st.markdown('</div>', unsafe_allow_html=True)
@@ -474,7 +476,7 @@ def main():
             ''', unsafe_allow_html=True)
             for i, up in enumerate(PS3_BOLA_UPDATES):
                 st.markdown(f'''
-                    <div style="background: #f0f9ff; border: 1px solid #bae6fd; padding: 10px 14px; border-radius: 8px; margin-bottom: 8px; font-size: 0.88rem; color: #1e293b;">
+                    <div style="background: #f0f9ff; border: 1px solid #bae6fd; padding: 10px 14px; border-radius: 8px; margin-bottom: 8px; font-size: 0.88rem; color: #0369a1; font-weight:600;">
                         <b style="color: #0284c7;">{i+1}.</b> {up}
                     </div>
                 ''', unsafe_allow_html=True)
@@ -493,7 +495,7 @@ def main():
             ''', unsafe_allow_html=True)
             for i, up in enumerate(ANDROID_SERVICES):
                 st.markdown(f'''
-                    <div style="background: #ecfdf5; border: 1px solid #a7f3d0; padding: 10px 14px; border-radius: 8px; margin-bottom: 8px; font-size: 0.88rem; color: #1e293b;">
+                    <div style="background: #ecfdf5; border: 1px solid #a7f3d0; padding: 10px 14px; border-radius: 8px; margin-bottom: 8px; font-size: 0.88rem; color: #065f46; font-weight:600;">
                         <b style="color: #059669;">{i+1}.</b> {up}
                     </div>
                 ''', unsafe_allow_html=True)
@@ -501,15 +503,15 @@ def main():
 
         with ex2:
             st.markdown('''
-                <div class="card-box" style="border: 2px solid #ef4444; box-shadow: 0 6px 20px rgba(239, 68, 68, 0.12);">
-                    <div class="service-title" style="color: #ef4444; font-size: 1.1rem;">
+                <div class="card-box card-crimson">
+                    <div class="service-title" style="color: #e11d48; font-size: 1.1rem;">
                         <i class="bi bi-nintendo-switch"></i> NINTENDO SWITCH SUB INDO
                     </div>
             ''', unsafe_allow_html=True)
             for i, game in enumerate(SWITCH_GAMES):
                 st.markdown(f'''
-                    <div style="background: #fef2f2; border: 1px solid #fecaca; padding: 10px 14px; border-radius: 8px; margin-bottom: 8px; font-size: 0.88rem; color: #1e293b;">
-                        <b style="color: #ef4444;">{i+1}.</b> {game}
+                    <div style="background: #fff1f2; border: 1px solid #fecdd3; padding: 10px 14px; border-radius: 8px; margin-bottom: 8px; font-size: 0.88rem; color: #9f1239; font-weight:600;">
+                        <b style="color: #e11d48;">{i+1}.</b> {game}
                     </div>
                 ''', unsafe_allow_html=True)
             st.markdown('</div>', unsafe_allow_html=True)
@@ -522,11 +524,11 @@ def main():
     with sec_lokasi:
         st.markdown('''
             <div style="margin-bottom: 8px;">
-                <small style="color: #64748b; letter-spacing: 1px; font-weight:700;">LOKASI WORKSHOP</small>
-                <div style="font-weight: 800; font-size: 1.25rem; color: #0f172a; margin-top: 4px;">
+                <small style="color: #002d72; letter-spacing: 1px; font-weight:800;">LOKASI WORKSHOP</small>
+                <div style="font-weight: 800; font-size: 1.25rem; color: #002d72; margin-top: 4px;">
                     <i class="bi bi-geo-alt-fill" style="color: #e11d48;"></i> PALEMBANG
                 </div>
-                <div style="font-size: 0.88rem; color: #475569; margin-top: 2px; font-weight:500;">
+                <div style="font-size: 0.88rem; color: #334155; margin-top: 2px; font-weight:600;">
                     TEGAL BINANGUN SASANA PATRA
                 </div>
             </div>
@@ -534,7 +536,7 @@ def main():
 
     with sec_order:
         st.markdown('''
-            <small style="color: #64748b; letter-spacing: 1px; font-weight:700;">ORDER & STORE</small><br>
+            <small style="color: #002d72; letter-spacing: 1px; font-weight:800;">ORDER & STORE</small><br>
             <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 8px;">
                 <a href="https://wa.me/6282289421650?text=" target="_blank" class="social-link btn-wa">
                     <i class="bi bi-whatsapp"></i> Chat WhatsApp
@@ -547,7 +549,7 @@ def main():
 
     with sec_social:
         st.markdown('''
-            <small style="color: #64748b; letter-spacing: 1px; font-weight:700;">SOSIAL MEDIA</small><br>
+            <small style="color: #002d72; letter-spacing: 1px; font-weight:800;">SOSIAL MEDIA</small><br>
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 8px;">
                 <a href="https://www.tiktok.com/@xtboy?_r=1&_t=ZS-9AIx1XJuxP8" target="_blank" class="social-link btn-tiktok">
                     <i class="bi bi-tiktok"></i> TikTok
@@ -563,10 +565,10 @@ def main():
 
     # Bottom Footer
     st.markdown('''
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 40px; padding: 15px 0; border-top: 1px solid #e2e8f0; color: #94a3b8; font-size: 0.8rem; font-weight:600;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 40px; padding: 15px 0; border-top: 2px solid #e2e8f0; color: #1e3a8a; font-size: 0.8rem; font-weight:700;">
             <div><b>MEDY5TATION</b></div>
             <div>&ldquo; GAME IS ALWAYS A GOOD IDEA &rdquo;</div>
-            <div style="letter-spacing: 2px;">&#9651; &#9675; &#10005; &#9633; PLAY &bull; SHARE &bull; TOGETHER</div>
+            <div style="letter-spacing: 2px; color: #002d72;">&#9651; &#9675; &#10005; &#9633; PLAY &bull; SHARE &bull; TOGETHER</div>
         </div>
     ''', unsafe_allow_html=True)
 
