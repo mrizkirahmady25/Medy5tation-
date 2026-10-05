@@ -16,20 +16,21 @@ def set_page_styling():
         layout="wide",
         initial_sidebar_state="collapsed",
     )
-    # CDN Icon Bootstrap
+    # CDN Icons
     st.markdown('<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">', unsafe_allow_html=True)
     
-    # CSS Murni tanpa f-string agar tidak error kurung kurawal
+    # Custom CSS dengan skema warna yang kaya & variatif
     custom_css = """
         <style>
-        @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700&family=Satisfy&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700;800&family=Satisfy&display=swap');
 
         .stApp {
-            background-color: #0d1117 !important;
+            background: radial-gradient(circle at 50% 0%, #151a28 0%, #0a0d14 100%) !important;
             color: #ffffff !important;
             font-family: 'Kanit', sans-serif !important;
         }
 
+        /* Header Branding */
         .brand-container {
             text-align: center;
             padding: 5px 0;
@@ -41,76 +42,133 @@ def set_page_styling():
             border-radius: 12px;
             display: block;
             margin: 0 auto;
+            box-shadow: 0 4px 20px rgba(224, 17, 95, 0.25);
         }
         .cursive-title {
             font-family: 'Satisfy', cursive !important;
-            color: #e0115f !important;
+            color: #ff3377 !important;
             font-size: 2.8rem;
             line-height: 1.1;
             margin: 0;
             text-align: left;
+            text-shadow: 0 0 12px rgba(255, 51, 119, 0.35);
         }
         .cursive-subtitle {
             font-family: 'Satisfy', cursive !important;
-            color: #ffffff !important;
+            color: #38ef7d !important;
             font-size: 2.2rem;
             line-height: 1.1;
             margin: 0;
             text-align: right;
+            text-shadow: 0 0 12px rgba(56, 239, 125, 0.35);
         }
         .brand-subtitle {
             font-size: 0.95rem;
             letter-spacing: 4px;
-            color: #b0b0b0;
+            color: #94a3b8;
             margin-top: 8px;
             margin-bottom: 20px;
         }
 
-        .card-box {
-            background-color: #161b22;
-            border: 1px solid #30363d;
-            border-radius: 12px;
-            padding: 16px;
-            margin-bottom: 15px;
-            height: 100%;
+        /* Highlight Pill Bar */
+        .feature-bar {
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+            gap: 12px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 14px 10px;
         }
-        .card-featured {
-            border: 1.5px solid #e0115f !important;
+        .feature-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
         }
 
-        .price-badge {
-            color: #e0115f;
-            font-size: 2.3rem;
-            font-weight: 800;
-            line-height: 1;
+        /* Variasi Kartu Layanan (Colorful Badges & Borders) */
+        .card-box {
+            border-radius: 14px;
+            padding: 18px;
+            margin-bottom: 15px;
+            height: 100%;
+            background: #111622;
+            transition: transform 0.2s, box-shadow 0.2s;
         }
+        .card-box:hover {
+            transform: translateY(-3px);
+        }
+        
+        .card-crimson {
+            border: 1.5px solid #ff2a70;
+            box-shadow: 0 4px 18px rgba(255, 42, 112, 0.15);
+        }
+        .card-cyan {
+            border: 1.5px solid #00d2ff;
+            box-shadow: 0 4px 18px rgba(0, 210, 255, 0.15);
+        }
+        .card-purple {
+            border: 1.5px solid #a855f7;
+            box-shadow: 0 4px 18px rgba(168, 85, 247, 0.15);
+        }
+        .card-amber {
+            border: 1.5px solid #f59e0b;
+            box-shadow: 0 4px 18px rgba(245, 158, 11, 0.15);
+        }
+        .card-emerald {
+            border: 1.5px solid #10b981;
+            box-shadow: 0 4px 18px rgba(16, 185, 129, 0.15);
+        }
+
+        .price-badge-crimson { color: #ff2a70; font-size: 2.3rem; font-weight: 800; line-height: 1; }
+        .price-badge-cyan { color: #00d2ff; font-size: 2.3rem; font-weight: 800; line-height: 1; }
+        .price-badge-amber { color: #f59e0b; font-size: 2.3rem; font-weight: 800; line-height: 1; }
+
         .service-title {
-            color: #e0115f;
             font-size: 0.95rem;
             font-weight: 700;
             text-transform: uppercase;
             margin-top: 8px;
             margin-bottom: 8px;
-        }
-        .game-list-header {
-            background: linear-gradient(90deg, #b80c44 0%, #e0115f 50%, #b80c44 100%);
-            color: white;
-            text-align: center;
-            padding: 10px;
-            border-radius: 8px;
-            font-weight: 700;
-            font-size: 1.2rem;
-            letter-spacing: 1px;
-            margin: 25px 0 15px 0;
+            letter-spacing: 0.5px;
         }
 
+        /* Game Item Badge */
+        .game-badge {
+            background: #151b28;
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            border-radius: 8px;
+            padding: 8px 12px;
+            margin-bottom: 8px;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s;
+        }
+        .game-badge:hover {
+            border-color: #ff2a70;
+            background: #1c2436;
+        }
+        .game-num {
+            color: #ff3377;
+            font-weight: 800;
+            font-size: 0.85rem;
+            min-width: 28px;
+        }
+
+        /* Social Link Buttons */
         .social-link {
             display: inline-flex;
             align-items: center;
             justify-content: center;
             gap: 8px;
             padding: 10px 16px;
-            border-radius: 8px;
+            border-radius: 10px;
             font-weight: 600;
             text-decoration: none !important;
             font-size: 0.9rem;
@@ -120,35 +178,38 @@ def set_page_styling():
             text-align: center;
         }
         .social-link:hover {
-            opacity: 0.9;
+            opacity: 0.92;
             transform: translateY(-2px);
         }
-        .btn-wa {
-            background-color: #25D366;
-            color: white !important;
+        .btn-wa { background: linear-gradient(135deg, #25D366, #128C7E); color: white !important; }
+        .btn-shopee { background: linear-gradient(135deg, #EE4D2D, #ff5722); color: white !important; }
+        .btn-tiktok { background: #000000; border: 1.5px solid #00f2fe; color: white !important; }
+        .btn-ig { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); color: white !important; }
+        .btn-yt { background: linear-gradient(135deg, #FF0000, #cc0000); color: white !important; }
+
+        /* Custom Tabs Styling */
+        div[data-baseweb="tab-list"] {
+            gap: 8px;
+            justify-content: center;
+            padding-bottom: 12px;
         }
-        .btn-shopee {
-            background-color: #EE4D2D;
-            color: white !important;
+        div[data-baseweb="tab"] {
+            border-radius: 8px !important;
+            padding: 8px 20px !important;
+            font-weight: 600 !important;
+            background-color: #111622 !important;
+            border: 1px solid rgba(255, 255, 255, 0.08) !important;
         }
-        .btn-tiktok {
-            background-color: #000000;
-            border: 1px solid #30363d;
+        div[data-baseweb="tab"][aria-selected="true"] {
+            background-color: #ff2a70 !important;
             color: white !important;
-        }
-        .btn-ig {
-            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-            color: white !important;
-        }
-        .btn-yt {
-            background-color: #FF0000;
-            color: white !important;
+            border-color: #ff2a70 !important;
         }
         </style>
     """
     st.markdown(custom_css, unsafe_allow_html=True)
 
-# Data Game Sesuai Poster
+# Data 82 Game Patch Sub Indonesia
 PS4_GAMES = [
     "GOW 3", "GTA 5 MOD SUB INDO", "THE LAST OF US 1", "THE LAST OF US 2", "NARUTO CONNECTION",
     "DAYS GONE", "DEVIL MAY CRY 5", "A WAY OUT", "IT TAKES TWO", "SEKIRO",
@@ -158,19 +219,40 @@ PS4_GAMES = [
     "Kena", "Assasins creed unity", "Elden ring", "Gta SA definitif edition", "Sleeping dog",
     "Assasin creed mirage", "GTA 3 DEFINITIF EDITION", "GTA VICE CITY DEFINITIF EDITION", "Gow Ragnarok", "Assassin creed ezio collection",
     "assassin creed origins", "visage", "Assassin Black Flag", "Bayonetta", "Harvest moon AWL spesial",
-    "Harvest moon sth", "Sifu", "Resident evil 5", "Assassin creed 3", "Lies of P",
-    "assasins creed Oddyssey", "ghost of tsusima", "Basara 4 sumeragi", "dead island 2", "mafia 1",
+    "Harvest moon sth", "Sifu", "Resident evil 5", "Assassin creed 3", "Lies op P",
+    "assasins creed Oddysey", "ghost of tsusima", "Basara 4 sumeragi", "dead island 2", "mafia 1",
     "mafia 2", "mafia 3", "Cyberpunk", "Resident evil 6", "Evil west",
     "Watchdog 1", "nier automata", "plague tale", "persona 3", "The calisto protocol",
     "Bloodborne", "Mortal kombat 11", "Stody of season", "Stars wars jedi survivor", "Tomb raider 1-3 remastered",
     "Gta 5 daeng nuansa Indonesia", "Uncharted nathan Drake", "Immortal hinyx", "Ghost recob", "Lego City Undercover",
-    "Death Door", "One piece Oddyssey", "Yakuza 3", "Control"
+    "Death Door", "One piece Oddysey", "Yakuza 3", "Control", "Judghment",
+    "Horizon zero down", "Spiderman", "Spiderman Miles morales", "detroit", "death stranding"
 ]
 
-PS4_HEN_UPDATES = ["Monster patch Winter 2026", "Eleven Patch Winter 2026 Final Update", "Daeng patch Summer 2026", "Bitbox patch WINTER 2026", "SGR Patch 2018 WINTER", "SGR Patch 2021 WINTER"]
-PS3_BOLA_UPDATES = ["Bitbox patch", "Vr patch"]
-ANDROID_SERVICES = ["Spotify mod premium", "Netflix (Nonton film gabungan vidio viu dkk)"]
-SWITCH_GAMES = ["DREDGE", "STRAY"]
+PS4_HEN_UPDATES = [
+    "Monster patch summer 2027",
+    "Eleven Patch summer 2027 Final Update",
+    "Bitbox patch summer 2027",
+    "Leader patch summer 2027",
+    "monster 2018 patch summer 2027"
+]
+
+PS3_BOLA_UPDATES = [
+    "Bitbox patch",
+    "Vr patch"
+]
+
+ANDROID_SERVICES = [
+    "Spotify mod premium",
+    "Netflix (Nonton film gabungan vidio viu dkk)"
+]
+
+SWITCH_GAMES = [
+    "DREDGE",
+    "STRAY",
+    "RDR",
+    "Zelda BOTW"
+]
 
 def main():
     set_page_styling()
@@ -196,7 +278,7 @@ def main():
         else:
             st.markdown('''
                 <div class="brand-container">
-                    <i class="bi bi-controller" style="font-size: 3rem; color: #e0115f;"></i>
+                    <i class="bi bi-controller" style="font-size: 3.2rem; color: #ff2a70;"></i>
                     <h1 style="letter-spacing: 4px; margin: 0; font-size: 3rem; color: white;">MEDY5TATION</h1>
                     <div class="brand-subtitle">PLAY MORE • GAME TOGETHER</div>
                 </div>
@@ -204,157 +286,242 @@ def main():
 
     with col_h3:
         st.markdown('''
-            <div style="text-align: right; color: #b0b0b0; font-size: 0.85rem; margin-bottom: 10px;">
+            <div style="text-align: right; color: #94a3b8; font-size: 0.85rem; margin-bottom: 8px;">
                 <b>PS4 &bull; PS3 &bull; SWITCH &bull; ANDROID</b>
             </div>
             <p class="cursive-subtitle">Game<br>Tanpa<br>Batas</p>
         ''', unsafe_allow_html=True)
 
-    # -- 5 FITUR UTAMA --
+    # -- BAR FITUR UTAMA --
     st.markdown('''
-        <div style="display: flex; justify-content: space-around; text-align: center; margin-bottom: 25px; flex-wrap: wrap; gap: 10px;">
-            <div><i class="bi bi-disc" style="font-size: 1.8rem; color: #e0115f;"></i><br><small style="color:#b0b0b0;">GAME ORIGINAL</small></div>
-            <div><i class="bi bi-cloud-arrow-down" style="font-size: 1.8rem; color: #e0115f;"></i><br><small style="color:#b0b0b0;">PATCH SUB INDO</small></div>
-            <div><i class="bi bi-device-hdd" style="font-size: 1.8rem; color: #e0115f;"></i><br><small style="color:#b0b0b0;">HDD FULL GAME</small></div>
-            <div><i class="bi bi-gear-wide-connected" style="font-size: 1.8rem; color: #e0115f;"></i><br><small style="color:#b0b0b0;">INSTAL LANGSUNG</small></div>
-            <div><i class="bi bi-shield-check" style="font-size: 1.8rem; color: #e0115f;"></i><br><small style="color:#b0b0b0;">AMAN & TERPERCAYA</small></div>
+        <div class="feature-bar">
+            <div class="feature-item"><i class="bi bi-disc" style="font-size: 1.6rem; color: #ff2a70;"></i><small style="color:#cbd5e1; font-weight:600;">GAME ORIGINAL</small></div>
+            <div class="feature-item"><i class="bi bi-cloud-arrow-down" style="font-size: 1.6rem; color: #00d2ff;"></i><small style="color:#cbd5e1; font-weight:600;">PATCH SUB INDO</small></div>
+            <div class="feature-item"><i class="bi bi-device-hdd" style="font-size: 1.6rem; color: #a855f7;"></i><small style="color:#cbd5e1; font-weight:600;">HDD FULL GAME</small></div>
+            <div class="feature-item"><i class="bi bi-gear-wide-connected" style="font-size: 1.6rem; color: #f59e0b;"></i><small style="color:#cbd5e1; font-weight:600;">INSTAL LANGSUNG</small></div>
+            <div class="feature-item"><i class="bi bi-shield-check" style="font-size: 1.6rem; color: #10b981;"></i><small style="color:#cbd5e1; font-weight:600;">AMAN & TERPERCAYA</small></div>
         </div>
     ''', unsafe_allow_html=True)
 
-    # -- BARIS PAKET HARGA & LAYANAN --
-    p1, p2, p3, p4, p5, p6 = st.columns([1.5, 2, 2, 1.8, 1.8, 2.2])
+    # -- NAVIGASI MENU / TABS --
+    tab_beranda, tab_games, tab_bola, tab_extra = st.tabs([
+        "🏠 Paket & Layanan",
+        f"🎮 List Game Sub Indo ({len(PS4_GAMES)})",
+        "⚽ Update Patch Bola",
+        "📱 Android & Switch"
+    ])
 
-    with p1:
-        st.markdown('''
-            <div class="card-box card-featured" style="text-align: center;">
-                <i class="bi bi-google-play" style="font-size: 1.8rem; color: white;"></i>
-                <div class="service-title">VIA DRIVE</div>
-                <div class="price-badge">15K</div>
-                <small style="color: #b0b0b0;">PER GAME</small>
-                <p style="font-size: 0.75rem; color: #8b949e; margin-top: 10px;">PATCH SUB INDO & LINK SESUAI CUSA GAME</p>
-            </div>
-        ''', unsafe_allow_html=True)
-
-    with p2:
-        st.markdown('''
-            <div class="card-box card-featured" style="text-align: center;">
-                <i class="bi bi-box-arrow-in-down" style="font-size: 1.8rem; color: white;"></i>
-                <div class="service-title">PKG & INSTAL DI PS</div>
-                <div class="price-badge">25K</div>
-                <small style="color: #b0b0b0;">PER GAME</small>
-                <div style="margin-top: 10px; background-color: #e0115f; padding: 4px; border-radius: 4px; font-weight: 600; font-size: 0.8rem; color: white;">
-                    3 GAME 65K
+    # === TAB 1: PAKET & LAYANAN ===
+    with tab_beranda:
+        st.write("")
+        p1, p2, p3 = st.columns([1.8, 2.2, 2.2])
+        with p1:
+            st.markdown('''
+                <div class="card-box card-cyan" style="text-align: center;">
+                    <i class="bi bi-google-play" style="font-size: 2rem; color: #00d2ff;"></i>
+                    <div class="service-title" style="color: #00d2ff;">VIA DRIVE</div>
+                    <div class="price-badge-cyan">15K</div>
+                    <small style="color: #94a3b8; font-weight:600;">PER GAME</small>
+                    <p style="font-size: 0.8rem; color: #cbd5e1; margin-top: 14px;">Patch Sub Indo & Link Download sesuai CUSA game</p>
                 </div>
-                <small style="color: #8b949e;">LOKASI PALEMBANG</small>
-            </div>
-        ''', unsafe_allow_html=True)
+            ''', unsafe_allow_html=True)
 
-    with p3:
-        st.markdown('''
-            <div class="card-box card-featured" style="text-align: center;">
-                <i class="bi bi-hdd-network" style="font-size: 1.8rem; color: white;"></i>
-                <div class="service-title">HDD FULL GAME SUB INDO</div>
-                <div style="display: flex; justify-content: space-around; margin-top: 8px;">
-                    <div><span style="background:white; color:#0d1117; padding:2px 6px; border-radius:4px; font-size:0.75rem; font-weight:bold;">500GB</span><br><b style="color:#e0115f; font-size:1.2rem;">350RB</b></div>
-                    <div><span style="background:white; color:#0d1117; padding:2px 6px; border-radius:4px; font-size:0.75rem; font-weight:bold;">1TB</span><br><b style="color:#e0115f; font-size:1.2rem;">550RB</b></div>
+        with p2:
+            st.markdown('''
+                <div class="card-box card-crimson" style="text-align: center;">
+                    <i class="bi bi-box-arrow-in-down" style="font-size: 2rem; color: #ff2a70;"></i>
+                    <div class="service-title" style="color: #ff2a70;">PKG & INSTAL DI PS</div>
+                    <div class="price-badge-crimson">25K</div>
+                    <small style="color: #94a3b8; font-weight:600;">PER GAME</small>
+                    <div style="margin-top: 10px; background: linear-gradient(90deg, #ff2a70, #b80c44); padding: 5px; border-radius: 6px; font-weight: 700; font-size: 0.85rem; color: white;">
+                        PROMO: 3 GAME 65K
+                    </div>
+                    <small style="color: #94a3b8; display: block; margin-top: 6px;">Lokasi Palembang</small>
                 </div>
-            </div>
-        ''', unsafe_allow_html=True)
+            ''', unsafe_allow_html=True)
 
-    with p4:
-        st.markdown('''
-            <div class="card-box card-featured">
-                <i class="bi bi-cpu" style="font-size: 1.6rem; color: white;"></i>
-                <div class="service-title">JASA HEN PS4</div>
-                <div class="price-badge" style="font-size: 1.8rem;">50K</div>
-                <ul style="font-size: 0.75rem; padding-left: 16px; margin: 8px 0 0 0; color: #c9d1d9;">
-                    <li>Install HEN</li>
-                    <li>Setting & Tes Game</li>
-                    <li>Panduan Pemakaian</li>
-                </ul>
-            </div>
-        ''', unsafe_allow_html=True)
+        with p3:
+            st.markdown('''
+                <div class="card-box card-purple" style="text-align: center;">
+                    <i class="bi bi-hdd-network" style="font-size: 2rem; color: #a855f7;"></i>
+                    <div class="service-title" style="color: #a855f7;">HDD FULL GAME (PKG/PNP)</div>
+                    <div style="display: flex; justify-content: space-around; margin-top: 12px;">
+                        <div>
+                            <span style="background:white; color:#0d1117; padding:3px 8px; border-radius:4px; font-size:0.75rem; font-weight:800;">500GB</span>
+                            <div style="color:#a855f7; font-size:1.6rem; font-weight:800; margin-top:4px;">350RB</div>
+                        </div>
+                        <div>
+                            <span style="background:white; color:#0d1117; padding:3px 8px; border-radius:4px; font-size:0.75rem; font-weight:800;">1TB</span>
+                            <div style="color:#a855f7; font-size:1.6rem; font-weight:800; margin-top:4px;">550RB</div>
+                        </div>
+                    </div>
+                    <small style="color: #94a3b8; display: block; margin-top: 8px;">Plug and Play / Siap Main</small>
+                </div>
+            ''', unsafe_allow_html=True)
 
-    with p5:
-        st.markdown('''
-            <div class="card-box card-featured">
-                <i class="bi bi-thermometer-half" style="font-size: 1.6rem; color: white;"></i>
-                <div class="service-title">GANTI PASTA</div>
-                <div class="price-badge" style="font-size: 1.8rem;">250RB</div>
-                <ul style="font-size: 0.75rem; padding-left: 16px; margin: 8px 0 0 0; color: #c9d1d9;">
-                    <li>Bersihin debu</li>
-                    <li>Pasta Thermal Premium</li>
-                </ul>
-            </div>
-        ''', unsafe_allow_html=True)
+        st.write("")
+        s1, s2, s3 = st.columns(3)
+        with s1:
+            st.markdown('''
+                <div class="card-box card-amber">
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                        <i class="bi bi-cpu" style="font-size: 1.8rem; color: #f59e0b;"></i>
+                        <div>
+                            <div class="service-title" style="color: #f59e0b; margin: 0;">JASA HEN PS4</div>
+                            <div class="price-badge-amber">50K</div>
+                        </div>
+                    </div>
+                    <ul style="font-size: 0.8rem; padding-left: 18px; margin: 12px 0 0 0; color: #cbd5e1; line-height: 1.6;">
+                        <li>Install Sistem HEN</li>
+                        <li>Setting & Tes Game Lengkap</li>
+                        <li>Panduan Pemakaian Sampai Paham</li>
+                    </ul>
+                </div>
+            ''', unsafe_allow_html=True)
 
-    with p6:
-        st.markdown('''
-            <div class="card-box card-featured">
-                <i class="bi bi-joystick" style="font-size: 1.6rem; color: white;"></i>
-                <div class="service-title">SERVIS STIK PS4</div>
-                <ul style="font-size: 0.75rem; padding-left: 16px; margin: 8px 0 0 0; color: #c9d1d9;">
-                    <li>Analog drift</li>
-                    <li>Tombol tidak respons</li>
-                    <li>Ganti part / cleaning</li>
-                    <li>Custom & upgrade</li>
-                </ul>
-            </div>
-        ''', unsafe_allow_html=True)
+        with s2:
+            st.markdown('''
+                <div class="card-box card-emerald">
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                        <i class="bi bi-thermometer-half" style="font-size: 1.8rem; color: #10b981;"></i>
+                        <div>
+                            <div class="service-title" style="color: #10b981; margin: 0;">GANTI PASTA THERMAL</div>
+                            <div style="color: #10b981; font-size: 2.3rem; font-weight: 800; line-height: 1;">250RB</div>
+                        </div>
+                    </div>
+                    <ul style="font-size: 0.8rem; padding-left: 18px; margin: 12px 0 0 0; color: #cbd5e1; line-height: 1.6;">
+                        <li>Deep Cleaning / Pembersihan Debu Mesin</li>
+                        <li>Aplikasi Thermal Paste Premium Berkualitas</li>
+                        <li>Meredam Kipas Bising & Mengatasi Overheat</li>
+                    </ul>
+                </div>
+            ''', unsafe_allow_html=True)
 
-    # -- LIST GAME --
-    st.markdown('<div class="game-list-header"><i class="bi bi-card-checklist"></i> LIST GAME PATCH SUB INDONESIA (PS4)</div>', unsafe_allow_html=True)
+        with s3:
+            st.markdown('''
+                <div class="card-box" style="border: 1.5px solid #ec4899; box-shadow: 0 4px 18px rgba(236, 72, 153, 0.15);">
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                        <i class="bi bi-joystick" style="font-size: 1.8rem; color: #ec4899;"></i>
+                        <div>
+                            <div class="service-title" style="color: #ec4899; margin: 0;">SERVIS STIK PS4</div>
+                            <small style="color: #94a3b8; font-weight: 600;">Diagnosa Cepat & Rapi</small>
+                        </div>
+                    </div>
+                    <ul style="font-size: 0.8rem; padding-left: 18px; margin: 12px 0 0 0; color: #cbd5e1; line-height: 1.6;">
+                        <li>Perbaikan Analog Drift / Tidak Stabil</li>
+                        <li>Tombol Keras atau Tidak Responsif</li>
+                        <li>Ganti Part / Jalur / Cleaning</li>
+                        <li>Kustomisasi & Upgrade Mod</li>
+                    </ul>
+                </div>
+            ''', unsafe_allow_html=True)
 
-    cols = st.columns(4)
-    chunk = (len(PS4_GAMES) + 3) // 4
-    for col_idx, col in enumerate(cols):
-        with col:
-            start_i = col_idx * chunk
-            end_i = min(start_i + chunk, len(PS4_GAMES))
-            for i in range(start_i, end_i):
-                st.markdown(f'<div style="font-size: 0.8rem; padding: 2px 0; color: #e6edf3;"><span style="color:#e0115f; font-weight:bold;">{i+1}.</span> {PS4_GAMES[i]}</div>', unsafe_allow_html=True)
+    # === TAB 2: KATALOG 82 GAME SUB INDO ===
+    with tab_games:
+        st.write("")
+        search_query = st.text_input("🔍 Cari Judul Game Patch Bahasa Indonesia:", placeholder="Contoh: God of War, Spiderman, Resident Evil...")
+        
+        filtered_games = [g for g in PS4_GAMES if search_query.lower() in g.lower()] if search_query else PS4_GAMES
 
-    # -- BARIS UPDATE KATEGORI LAIN --
-    st.write("")
-    u1, u2, u3, u4 = st.columns(4)
+        if not filtered_games:
+            st.info("Game yang dicari belum tersedia dalam daftar.")
+        else:
+            cols = st.columns(4)
+            chunk = (len(filtered_games) + 3) // 4
+            for col_idx, col in enumerate(cols):
+                with col:
+                    start_i = col_idx * chunk
+                    end_i = min(start_i + chunk, len(filtered_games))
+                    for i in range(start_i, end_i):
+                        actual_idx = PS4_GAMES.index(filtered_games[i]) + 1
+                        st.markdown(f'''
+                            <div class="game-badge">
+                                <span class="game-num">#{actual_idx}</span>
+                                <span style="color:#f1f5f9; font-weight:500;">{filtered_games[i]}</span>
+                            </div>
+                        ''', unsafe_allow_html=True)
 
-    with u1:
-        st.markdown('<div class="card-box"><div class="service-title"><i class="bi bi-dribbble"></i> UPDATE BOLA PS4 HEN</div>', unsafe_allow_html=True)
-        for i, up in enumerate(PS4_HEN_UPDATES):
-            st.markdown(f'<div style="font-size: 0.75rem; color: #8b949e;">{i+1}. {up}</div>', unsafe_allow_html=True)
-        st.markdown('</div>', unsafe_allow_html=True)
+    # === TAB 3: UPDATE PATCH BOLA ===
+    with tab_bola:
+        st.write("")
+        b1, b2 = st.columns(2)
+        with b1:
+            st.markdown('''
+                <div class="card-box card-crimson">
+                    <div class="service-title" style="color: #ff2a70; font-size: 1.1rem;">
+                        <i class="bi bi-dribbble"></i> UPDATE BOLA PS4 HEN (SUMMER 2027)
+                    </div>
+            ''', unsafe_allow_html=True)
+            for i, up in enumerate(PS4_HEN_UPDATES):
+                st.markdown(f'''
+                    <div style="background: rgba(255,255,255,0.03); padding: 8px 12px; border-radius: 6px; margin-bottom: 6px; font-size: 0.85rem; color: #f1f5f9;">
+                        <b style="color: #ff2a70;">{i+1}.</b> {up}
+                    </div>
+                ''', unsafe_allow_html=True)
+            st.markdown('</div>', unsafe_allow_html=True)
 
-    with u2:
-        st.markdown('<div class="card-box"><div class="service-title"><i class="bi bi-dribbble"></i> UPDATE BOLA PS3</div>', unsafe_allow_html=True)
-        for i, up in enumerate(PS3_BOLA_UPDATES):
-            st.markdown(f'<div style="font-size: 0.75rem; color: #8b949e;">{i+1}. {up}</div>', unsafe_allow_html=True)
-        st.markdown('</div>', unsafe_allow_html=True)
+        with b2:
+            st.markdown('''
+                <div class="card-box card-cyan">
+                    <div class="service-title" style="color: #00d2ff; font-size: 1.1rem;">
+                        <i class="bi bi-dribbble"></i> UPDATE BOLA PS3
+                    </div>
+            ''', unsafe_allow_html=True)
+            for i, up in enumerate(PS3_BOLA_UPDATES):
+                st.markdown(f'''
+                    <div style="background: rgba(255,255,255,0.03); padding: 8px 12px; border-radius: 6px; margin-bottom: 6px; font-size: 0.85rem; color: #f1f5f9;">
+                        <b style="color: #00d2ff;">{i+1}.</b> {up}
+                    </div>
+                ''', unsafe_allow_html=True)
+            st.markdown('</div>', unsafe_allow_html=True)
 
-    with u3:
-        st.markdown('<div class="card-box"><div class="service-title"><i class="bi bi-android2"></i> ANDROID APPS</div>', unsafe_allow_html=True)
-        for i, up in enumerate(ANDROID_SERVICES):
-            st.markdown(f'<div style="font-size: 0.75rem; color: #8b949e;">{i+1}. {up}</div>', unsafe_allow_html=True)
-        st.markdown('</div>', unsafe_allow_html=True)
+    # === TAB 4: ANDROID & NINTENDO SWITCH ===
+    with tab_extra:
+        st.write("")
+        ex1, ex2 = st.columns(2)
+        with ex1:
+            st.markdown('''
+                <div class="card-box card-emerald">
+                    <div class="service-title" style="color: #10b981; font-size: 1.1rem;">
+                        <i class="bi bi-android2"></i> ANDROID APPS & STREAMING
+                    </div>
+            ''', unsafe_allow_html=True)
+            for i, up in enumerate(ANDROID_SERVICES):
+                st.markdown(f'''
+                    <div style="background: rgba(255,255,255,0.03); padding: 8px 12px; border-radius: 6px; margin-bottom: 6px; font-size: 0.85rem; color: #f1f5f9;">
+                        <b style="color: #10b981;">{i+1}.</b> {up}
+                    </div>
+                ''', unsafe_allow_html=True)
+            st.markdown('</div>', unsafe_allow_html=True)
 
-    with u4:
-        st.markdown('<div class="card-box"><div class="service-title"><i class="bi bi-nintendo-switch"></i> SWITCH SUB INDO</div>', unsafe_allow_html=True)
-        for i, game in enumerate(SWITCH_GAMES):
-            st.markdown(f'<div style="font-size: 0.75rem; color: #8b949e;">{i+1}. {game}</div>', unsafe_allow_html=True)
-        st.markdown('</div>', unsafe_allow_html=True)
+        with ex2:
+            st.markdown('''
+                <div class="card-box" style="border: 1.5px solid #ef4444; box-shadow: 0 4px 18px rgba(239, 68, 68, 0.15);">
+                    <div class="service-title" style="color: #ef4444; font-size: 1.1rem;">
+                        <i class="bi bi-nintendo-switch"></i> NINTENDO SWITCH SUB INDO
+                    </div>
+            ''', unsafe_allow_html=True)
+            for i, game in enumerate(SWITCH_GAMES):
+                st.markdown(f'''
+                    <div style="background: rgba(255,255,255,0.03); padding: 8px 12px; border-radius: 6px; margin-bottom: 6px; font-size: 0.85rem; color: #f1f5f9;">
+                        <b style="color: #ef4444;">{i+1}.</b> {game}
+                    </div>
+                ''', unsafe_allow_html=True)
+            st.markdown('</div>', unsafe_allow_html=True)
 
     # -- FOOTER & KONTAK LENGKAP --
-    st.markdown('<hr style="border-color: #30363d; margin: 35px 0 25px 0;">', unsafe_allow_html=True)
+    st.markdown('<hr style="border-color: rgba(255,255,255,0.08); margin: 35px 0 25px 0;">', unsafe_allow_html=True)
     
     sec_lokasi, sec_order, sec_social = st.columns([1.5, 2, 2.5])
 
     with sec_lokasi:
         st.markdown('''
             <div style="margin-bottom: 8px;">
-                <small style="color: #8b949e; letter-spacing: 1px;">LOKASI WORKSHOP</small>
+                <small style="color: #94a3b8; letter-spacing: 1px;">LOKASI WORKSHOP</small>
                 <div style="font-weight: 700; font-size: 1.2rem; color: white; margin-top: 4px;">
-                    <i class="bi bi-geo-alt-fill" style="color: #e0115f;"></i> PALEMBANG
+                    <i class="bi bi-geo-alt-fill" style="color: #ff2a70;"></i> PALEMBANG
                 </div>
-                <div style="font-size: 0.85rem; color: #8b949e; margin-top: 2px;">
+                <div style="font-size: 0.85rem; color: #94a3b8; margin-top: 2px;">
                     TEGAL BINANGUN SASANA PATRA
                 </div>
             </div>
@@ -362,7 +529,7 @@ def main():
 
     with sec_order:
         st.markdown('''
-            <small style="color: #8b949e; letter-spacing: 1px;">ORDER & STORE</small><br>
+            <small style="color: #94a3b8; letter-spacing: 1px;">ORDER & STORE</small><br>
             <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 8px;">
                 <a href="https://wa.me/6282289421650?text=" target="_blank" class="social-link btn-wa">
                     <i class="bi bi-whatsapp"></i> Chat WhatsApp
@@ -375,7 +542,7 @@ def main():
 
     with sec_social:
         st.markdown('''
-            <small style="color: #8b949e; letter-spacing: 1px;">SOSIAL MEDIA</small><br>
+            <small style="color: #94a3b8; letter-spacing: 1px;">SOSIAL MEDIA</small><br>
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 8px;">
                 <a href="https://www.tiktok.com/@xtboy?_r=1&_t=ZS-9AIx1XJuxP8" target="_blank" class="social-link btn-tiktok">
                     <i class="bi bi-tiktok"></i> TikTok
@@ -389,9 +556,9 @@ def main():
             </a>
         ''', unsafe_allow_html=True)
 
-    # Bottom PlayStation shapes footer
+    # Bottom Footer
     st.markdown('''
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 40px; padding: 15px 0; border-top: 1px solid #21262d; color: #8b949e; font-size: 0.8rem;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 40px; padding: 15px 0; border-top: 1px solid rgba(255,255,255,0.06); color: #64748b; font-size: 0.8rem;">
             <div><b>MEDY5TATION</b></div>
             <div>&ldquo; GAME IS ALWAYS A GOOD IDEA &rdquo;</div>
             <div style="letter-spacing: 2px;">&#9651; &#9675; &#10005; &#9633; PLAY &bull; SHARE &bull; TOGETHER</div>
