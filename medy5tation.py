@@ -2,20 +2,8 @@ import streamlit as st
 import os
 import base64
 
-# -- KONFIGURASI TEMA & WARNA --
-THEME = {
-    "bg_color": "#0d1117",
-    "main_text": "#ffffff",
-    "accent_red": "#e0115f",
-    "light_gray": "#b0b0b0",
-    "card_bg": "#161b22",
-    "card_border": "#30363d",
-    "font_main": "Kanit",
-    "font_accent": "Satisfy",
-}
-
 def get_image_base64(path):
-    """Membaca file gambar lokal dan mengubahnya menjadi base64 agar tampil aman di Streamlit Cloud"""
+    """Membaca file gambar lokal menjadi Base64"""
     if os.path.exists(path):
         with open(path, "rb") as image_file:
             return base64.b64encode(image_file.read()).decode()
@@ -28,82 +16,84 @@ def set_page_styling():
         layout="wide",
         initial_sidebar_state="collapsed",
     )
-    # Import Bootstrap Icons CDN & Google Fonts
-    st.markdown(f"""
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    # CDN Icon Bootstrap
+    st.markdown('<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">', unsafe_allow_html=True)
+    
+    # CSS Murni tanpa f-string agar tidak error kurung kurawal
+    custom_css = """
         <style>
         @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700&family=Satisfy&display=swap');
 
-        .stApp {{
-            background-color: {THEME['bg_color']};
-            color: {THEME['main_text']};
-            font-family: '{THEME['font_main']}', sans-serif;
-        }}
+        .stApp {
+            background-color: #0d1117 !important;
+            color: #ffffff !important;
+            font-family: 'Kanit', sans-serif !important;
+        }
 
-        .brand-container {{
+        .brand-container {
             text-align: center;
             padding: 5px 0;
-        }}
-        .brand-logo-img {{
+        }
+        .brand-logo-img {
             max-width: 220px;
             width: 100%;
             height: auto;
             border-radius: 12px;
             display: block;
             margin: 0 auto;
-        }}
-        .cursive-title {{
-            font-family: '{THEME['font_accent']}', cursive;
-            color: {THEME['accent_red']};
+        }
+        .cursive-title {
+            font-family: 'Satisfy', cursive !important;
+            color: #e0115f !important;
             font-size: 2.8rem;
             line-height: 1.1;
             margin: 0;
             text-align: left;
-        }}
-        .cursive-subtitle {{
-            font-family: '{THEME['font_accent']}', cursive;
-            color: {THEME['main_text']};
+        }
+        .cursive-subtitle {
+            font-family: 'Satisfy', cursive !important;
+            color: #ffffff !important;
             font-size: 2.2rem;
             line-height: 1.1;
             margin: 0;
             text-align: right;
-        }}
-        .brand-subtitle {{
+        }
+        .brand-subtitle {
             font-size: 0.95rem;
             letter-spacing: 4px;
-            color: {THEME['light_gray']};
+            color: #b0b0b0;
             margin-top: 8px;
             margin-bottom: 20px;
-        }}
+        }
 
-        .card-box {{
-            background-color: {THEME['card_bg']};
-            border: 1px solid {THEME['card_border']};
+        .card-box {
+            background-color: #161b22;
+            border: 1px solid #30363d;
             border-radius: 12px;
             padding: 16px;
             margin-bottom: 15px;
             height: 100%;
-        }}
-        .card-featured {{
-            border: 1.5px solid {THEME['accent_red']};
-        }}
+        }
+        .card-featured {
+            border: 1.5px solid #e0115f !important;
+        }
 
-        .price-badge {{
-            color: {THEME['accent_red']};
+        .price-badge {
+            color: #e0115f;
             font-size: 2.3rem;
             font-weight: 800;
             line-height: 1;
-        }}
-        .service-title {{
-            color: {THEME['accent_red']};
+        }
+        .service-title {
+            color: #e0115f;
             font-size: 0.95rem;
             font-weight: 700;
             text-transform: uppercase;
             margin-top: 8px;
             margin-bottom: 8px;
-        }}
-        .game-list-header {{
-            background: linear-gradient(90deg, #b80c44 0%, {THEME['accent_red']} 50%, #b80c44 100%);
+        }
+        .game-list-header {
+            background: linear-gradient(90deg, #b80c44 0%, #e0115f 50%, #b80c44 100%);
             color: white;
             text-align: center;
             padding: 10px;
@@ -112,10 +102,9 @@ def set_page_styling():
             font-size: 1.2rem;
             letter-spacing: 1px;
             margin: 25px 0 15px 0;
-        }}
+        }
 
-        /* Social Media Button Styling */
-        .social-link {{
+        .social-link {
             display: inline-flex;
             align-items: center;
             justify-content: center;
@@ -129,34 +118,35 @@ def set_page_styling():
             margin-bottom: 8px;
             width: 100%;
             text-align: center;
-        }}
-        .social-link:hover {{
+        }
+        .social-link:hover {
             opacity: 0.9;
             transform: translateY(-2px);
-        }}
-        .btn-wa {{
+        }
+        .btn-wa {
             background-color: #25D366;
             color: white !important;
-        }}
-        .btn-shopee {{
+        }
+        .btn-shopee {
             background-color: #EE4D2D;
             color: white !important;
-        }}
-        .btn-tiktok {{
+        }
+        .btn-tiktok {
             background-color: #000000;
             border: 1px solid #30363d;
             color: white !important;
-        }}
-        .btn-ig {{
+        }
+        .btn-ig {
             background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
             color: white !important;
-        }}
-        .btn-yt {{
+        }
+        .btn-yt {
             background-color: #FF0000;
             color: white !important;
-        }}
+        }
         </style>
-    """, unsafe_allow_html=True)
+    """
+    st.markdown(custom_css, unsafe_allow_html=True)
 
 # Data Game Sesuai Poster
 PS4_GAMES = [
@@ -190,7 +180,6 @@ def main():
     with col_h1:
         st.markdown('<p class="cursive-title">Good Games<br>Better Days</p>', unsafe_allow_html=True)
     with col_h2:
-        # Menampilkan gambar logo jika ada di direktori
         logo_base64 = None
         for filename in ["logo.png", "logo.jpg", "logo.jpeg"]:
             if os.path.exists(filename):
@@ -208,7 +197,7 @@ def main():
             st.markdown('''
                 <div class="brand-container">
                     <i class="bi bi-controller" style="font-size: 3rem; color: #e0115f;"></i>
-                    <h1 style="letter-spacing: 4px; margin: 0; font-size: 3rem;">MEDY5TATION</h1>
+                    <h1 style="letter-spacing: 4px; margin: 0; font-size: 3rem; color: white;">MEDY5TATION</h1>
                     <div class="brand-subtitle">PLAY MORE • GAME TOGETHER</div>
                 </div>
             ''', unsafe_allow_html=True)
@@ -253,7 +242,7 @@ def main():
                 <div class="service-title">PKG & INSTAL DI PS</div>
                 <div class="price-badge">25K</div>
                 <small style="color: #b0b0b0;">PER GAME</small>
-                <div style="margin-top: 10px; background-color: #e0115f; padding: 4px; border-radius: 4px; font-weight: 600; font-size: 0.8rem;">
+                <div style="margin-top: 10px; background-color: #e0115f; padding: 4px; border-radius: 4px; font-weight: 600; font-size: 0.8rem; color: white;">
                     3 GAME 65K
                 </div>
                 <small style="color: #8b949e;">LOKASI PALEMBANG</small>
