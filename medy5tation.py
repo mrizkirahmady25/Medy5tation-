@@ -20,7 +20,7 @@ def controller_svg(color="#c8264d", width=150):
         <path d="M50 22 Q62 12 82 18 L118 18 Q138 12 150 22 Q176 30 188 76 Q196 108 174 110 Q158 110 144 86 L56 86 Q42 110 26 110 Q4 108 12 76 Q24 30 50 22 Z"/>
         <rect x="76" y="26" width="48" height="28" rx="4"/>
         <path d="M50 38 v20 M40 48 h20"/>
-        <circle cx="150" cy="38" r="4.5" stroke="#34d399"/><circle cx="164" cy="50" r="4.5"/>
+        <circle cx="150" cy="38" r="4.5" stroke="#ffe08a"/><circle cx="164" cy="50" r="4.5"/>
         <circle cx="150" cy="62" r="4.5"/><circle cx="136" cy="50" r="4.5"/>
         <circle cx="82" cy="74" r="11"/><circle cx="118" cy="74" r="11"/>
         <path d="M92 60 h16"/>
@@ -47,11 +47,11 @@ def set_page_styling():
 
         /* [BARU] Palet layering biru tua: luar > tengah > dalam */
         :root {
-            --navy-1: #0a2a5e;
-            --navy-2: #0f3a7a;
-            --navy-3: #164a94;
-            --navy-line: #1e4fa3;
-            --accent: #38bdf8;
+            --navy-1: #7b1534;
+            --navy-2: #9a1d43;
+            --navy-3: #b8244f;
+            --navy-line: #d9486f;
+            --accent: #ffc2d1;
             --pink: #c8264d;
             --heart: #c8264d;
         }
@@ -86,7 +86,7 @@ def set_page_styling():
         }
         .cursive-subtitle {
             font-family: 'Satisfy', cursive !important;
-            color: #002d72 !important;
+            color: #7b1534 !important;
             font-size: 2.2rem;
             line-height: 1.1;
             margin: 0;
@@ -113,7 +113,7 @@ def set_page_styling():
             border: 1.5px solid var(--navy-line) !important;
             border-radius: 16px;
             padding: 12px 10px;
-            box-shadow: 0 4px 12px rgba(10, 42, 94, 0.25);
+            box-shadow: 0 4px 12px rgba(123, 21, 52, 0.25);
         }
         .feature-item {
             display: flex;
@@ -138,7 +138,7 @@ def set_page_styling():
             background: var(--navy-1) !important;               /* [BARU] layer luar navigasi */
             border: 1.5px solid var(--navy-line) !important;
             border-radius: 16px !important;
-            box-shadow: 0 4px 12px rgba(10, 42, 94, 0.25);
+            box-shadow: 0 4px 12px rgba(123, 21, 52, 0.25);
             margin-bottom: 18px;
         }
         [data-baseweb="tab"] {
@@ -178,12 +178,12 @@ def set_page_styling():
             background-color: var(--navy-2) !important; /* Biru Tua Navy */
             color: #ffffff !important;
             border: 1.5px solid var(--navy-line) !important;
-            box-shadow: 0 6px 16px rgba(10, 42, 94, 0.18);
+            box-shadow: 0 6px 16px rgba(123, 21, 52, 0.18);
             transition: transform 0.2s, box-shadow 0.2s;
         }
         .card-box:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(10, 42, 94, 0.28);
+            box-shadow: 0 8px 20px rgba(123, 21, 52, 0.28);
         }
         .card-featured {
             border: 1.5px solid #c8264d !important;
@@ -195,7 +195,7 @@ def set_page_styling():
             line-height: 1;
         }
         .service-title {
-            color: #38bdf8 !important; /* Aksen Biru Terang untuk Judul di Dalam Box Biru Tua */
+            color: #ffc2d1 !important; /* Aksen Biru Terang untuk Judul di Dalam Box Biru Tua */
             font-size: 1rem;
             font-weight: 700;
             text-transform: uppercase;
@@ -211,7 +211,7 @@ def set_page_styling():
             border-radius: 18px;
             padding: 10px;
             margin-bottom: 15px;
-            box-shadow: 0 6px 18px rgba(10, 42, 94, 0.25);
+            box-shadow: 0 6px 18px rgba(123, 21, 52, 0.25);
         }
         .layer-inner {
             background: var(--navy-2);
@@ -221,8 +221,8 @@ def set_page_styling():
         }
         .item-tag {
             margin-left: auto;
-            background: rgba(56, 189, 248, 0.18);
-            color: #bae6fd;
+            background: rgba(255, 194, 209, 0.2);
+            color: #ffd9e2;
             font-size: 0.7rem;
             padding: 2px 8px;
             border-radius: 20px;
@@ -232,7 +232,7 @@ def set_page_styling():
         /* List Items di dalam Box Bola / Extra (layer item) */
         .list-item-box {
             background: var(--navy-3);
-            border: 1px solid #2a63b8;
+            border: 1px solid #d9486f;
             padding: 10px 14px;
             border-radius: 8px;
             margin-bottom: 8px;
@@ -251,7 +251,7 @@ def set_page_styling():
         /* KOTAK LIST GAME - LAYER BOX BIRU TUA */
         .game-badge {
             background-color: var(--navy-3) !important;
-            border: 1px solid #2a63b8 !important;
+            border: 1px solid #d9486f !important;
             border-radius: 8px;
             padding: 9px 12px;
             margin-bottom: 8px;
@@ -262,12 +262,12 @@ def set_page_styling():
             transition: all 0.15s ease-in-out;
         }
         .game-badge:hover {
-            border-color: #38bdf8 !important;
-            background-color: #1a56a8 !important;
+            border-color: #ffc2d1 !important;
+            background-color: #cf3a63 !important;
             transform: scale(1.02);
         }
         .game-num {
-            color: #38bdf8 !important;
+            color: #ffc2d1 !important;
             font-weight: 800;
             font-size: 0.85rem;
             min-width: 28px;
@@ -327,8 +327,50 @@ def set_page_styling():
         .layer-outer { border-top: 3px solid var(--heart); }
         .card-box { border-top: 3px solid var(--heart) !important; }
         .feature-bar { border-top: 3px solid var(--heart) !important; }
-        .brand-logo-img { border: 2px solid var(--heart); box-shadow: 0 6px 18px rgba(10, 42, 94, 0.3); }
+        .brand-logo-img { border: 2px solid var(--heart); box-shadow: 0 6px 18px rgba(123, 21, 52, 0.3); }
         .stick-wrap { text-align: center; opacity: 0.95; }
+
+        /* [v4] NAVIGASI TAB MERAH HATI - selector lengkap untuk semua versi Streamlit */
+        [role="tablist"], [data-baseweb="tab-list"] {
+            background: var(--navy-1) !important;
+            border: 1.5px solid var(--navy-line) !important;
+            border-top: 3px solid #e23e66 !important;
+            border-radius: 16px !important;
+            padding: 10px !important;
+            gap: 12px !important;
+            justify-content: center !important;
+            flex-wrap: wrap !important;
+            box-shadow: 0 4px 14px rgba(123, 21, 52, 0.3) !important;
+        }
+        [role="tab"], button[data-baseweb="tab"], [data-testid="stTab"] {
+            background: var(--navy-2) !important;
+            border: 1.5px solid var(--navy-line) !important;
+            border-radius: 10px !important;
+            padding: 10px 22px !important;
+            height: auto !important;
+        }
+        [role="tab"], [role="tab"] *, [data-testid="stTab"], [data-testid="stTab"] * {
+            color: #ffffff !important;
+            opacity: 1 !important;
+            font-weight: 700 !important;
+        }
+        [role="tab"]:hover { background: var(--navy-3) !important; border-color: #ffc2d1 !important; }
+        [role="tab"][aria-selected="true"] {
+            background: #e23e66 !important;
+            border-color: #ffc2d1 !important;
+            box-shadow: 0 4px 14px rgba(226, 62, 102, 0.5) !important;
+        }
+        [data-baseweb="tab-highlight"], [data-baseweb="tab-border"] { background: transparent !important; }
+
+        /* [v4] Teks widget tidak lagi putih di tema gelap */
+        .stApp label, .stApp [data-testid="stWidgetLabel"] p,
+        .stApp [data-testid="stCaptionContainer"], .stApp [data-testid="stCaptionContainer"] p,
+        .stApp [data-testid="stRadio"] p, .stApp h5 { color: #7b1534 !important; font-weight: 600; }
+        .stApp input { color: #0f172a !important; background: #ffffff !important; }
+        .stApp [data-baseweb="input"], .stApp [data-baseweb="select"] > div {
+            background: #ffffff !important; border-color: #d9486f !important;
+        }
+        .stApp [data-baseweb="select"] * { color: #0f172a !important; }
         </style>
     """
     st.markdown(custom_css, unsafe_allow_html=True)
@@ -390,7 +432,7 @@ def hitung_pkg(n):
 def rupiah(n):
     return "Rp " + f"{n:,}".replace(",", ".")
 
-def layered_box(title, icon, items, number_color="#38bdf8", title_color="#38bdf8", tag="Tersedia"):
+def layered_box(title, icon, items, number_color="#ffc2d1", title_color="#ffc2d1", tag="Tersedia"):
     """Box layering 3 lapis biru tua: layer luar > layer tengah > item"""
     if items:
         items_html = "".join([
@@ -441,14 +483,14 @@ def main():
             st.markdown('''
                 <div class="brand-container">
                     <div class="stick-wrap">'''+controller_svg(width=120)+'''</div>
-                    <h1 style="letter-spacing: 4px; margin: 0; font-size: 3rem; color: #0a2a5e;">MEDY5TATION</h1>
+                    <h1 style="letter-spacing: 4px; margin: 0; font-size: 3rem; color: #7b1534;">MEDY5TATION</h1>
                     <div class="brand-subtitle">PLAY MORE • GAME TOGETHER</div>
                 </div>
             ''', unsafe_allow_html=True)
 
     with col_h3:
         st.markdown('''
-            <div style="text-align: right; color: #002d72; font-size: 0.85rem; margin-bottom: 8px;">
+            <div style="text-align: right; color: #7b1534; font-size: 0.85rem; margin-bottom: 8px;">
                 <b>PS4 &bull; PS3 &bull; SWITCH &bull; ANDROID</b>
             </div>
             <p class="cursive-subtitle">Game<br>Tanpa<br>Batas</p>
@@ -457,11 +499,11 @@ def main():
     # -- 5 FITUR UTAMA (BOX BIRU TUA) --
     st.markdown('''
         <div class="feature-bar">
-            <div class="feature-item"><i class="bi bi-disc" style="font-size: 1.6rem; color: #38bdf8;"></i><small>GAME ORIGINAL</small></div>
-            <div class="feature-item"><i class="bi bi-cloud-arrow-down" style="font-size: 1.6rem; color: #38bdf8;"></i><small>PATCH SUB INDO</small></div>
-            <div class="feature-item"><i class="bi bi-device-hdd" style="font-size: 1.6rem; color: #38bdf8;"></i><small>HDD FULL GAME</small></div>
-            <div class="feature-item"><i class="bi bi-gear-wide-connected" style="font-size: 1.6rem; color: #38bdf8;"></i><small>INSTAL LANGSUNG</small></div>
-            <div class="feature-item"><i class="bi bi-shield-check" style="font-size: 1.6rem; color: #38bdf8;"></i><small>AMAN & TERPERCAYA</small></div>
+            <div class="feature-item"><i class="bi bi-disc" style="font-size: 1.6rem; color: #ffc2d1;"></i><small>GAME ORIGINAL</small></div>
+            <div class="feature-item"><i class="bi bi-cloud-arrow-down" style="font-size: 1.6rem; color: #ffc2d1;"></i><small>PATCH SUB INDO</small></div>
+            <div class="feature-item"><i class="bi bi-device-hdd" style="font-size: 1.6rem; color: #ffc2d1;"></i><small>HDD FULL GAME</small></div>
+            <div class="feature-item"><i class="bi bi-gear-wide-connected" style="font-size: 1.6rem; color: #ffc2d1;"></i><small>INSTAL LANGSUNG</small></div>
+            <div class="feature-item"><i class="bi bi-shield-check" style="font-size: 1.6rem; color: #ffc2d1;"></i><small>AMAN & TERPERCAYA</small></div>
         </div>
     ''', unsafe_allow_html=True)
 
@@ -489,10 +531,10 @@ def main():
         with p1:
             st.markdown('''
                 <div class="card-box card-featured" style="text-align: center;">
-                    <i class="bi bi-google-play" style="font-size: 2rem; color: #38bdf8;"></i>
+                    <i class="bi bi-google-play" style="font-size: 2rem; color: #ffc2d1;"></i>
                     <div class="service-title">VIA DRIVE</div>
                     <div class="price-badge">15K</div>
-                    <small style="color: #bae6fd;">PER GAME</small>
+                    <small style="color: #ffd9e2;">PER GAME</small>
                     <p style="font-size: 0.82rem; color: #e2e8f0; margin-top: 12px;">Patch Sub Indo & Link Download sesuai CUSA game</p>
                 </div>
             ''', unsafe_allow_html=True)
@@ -500,10 +542,10 @@ def main():
         with p2:
             st.markdown('''
                 <div class="card-box card-featured" style="text-align: center;">
-                    <i class="bi bi-box-arrow-in-down" style="font-size: 2rem; color: #38bdf8;"></i>
+                    <i class="bi bi-box-arrow-in-down" style="font-size: 2rem; color: #ffc2d1;"></i>
                     <div class="service-title">PKG & INSTAL DI PS</div>
                     <div class="price-badge">25K</div>
-                    <small style="color: #bae6fd;">PER GAME</small>
+                    <small style="color: #ffd9e2;">PER GAME</small>
                     <div style="margin-top: 10px; background-color: #c8264d; padding: 6px; border-radius: 6px; font-weight: 700; font-size: 0.85rem; color: white;">
                         3 GAME 65K
                     </div>
@@ -514,15 +556,15 @@ def main():
         with p3:
             st.markdown('''
                 <div class="card-box card-featured" style="text-align: center;">
-                    <i class="bi bi-hdd-network" style="font-size: 2rem; color: #38bdf8;"></i>
+                    <i class="bi bi-hdd-network" style="font-size: 2rem; color: #ffc2d1;"></i>
                     <div class="service-title">HDD FULL GAME (PKG/PNP)</div>
                     <div style="display: flex; justify-content: space-around; margin-top: 10px;">
                         <div>
-                            <span style="background:white; color:#0a2a5e; padding:3px 8px; border-radius:4px; font-size:0.75rem; font-weight:bold;">500GB</span>
+                            <span style="background:white; color:#7b1534; padding:3px 8px; border-radius:4px; font-size:0.75rem; font-weight:bold;">500GB</span>
                             <div style="color:#ff8fa5; font-size:1.6rem; font-weight:800; margin-top:4px;">350RB</div>
                         </div>
                         <div>
-                            <span style="background:white; color:#0a2a5e; padding:3px 8px; border-radius:4px; font-size:0.75rem; font-weight:bold;">1TB</span>
+                            <span style="background:white; color:#7b1534; padding:3px 8px; border-radius:4px; font-size:0.75rem; font-weight:bold;">1TB</span>
                             <div style="color:#ff8fa5; font-size:1.6rem; font-weight:800; margin-top:4px;">550RB</div>
                         </div>
                     </div>
@@ -535,7 +577,7 @@ def main():
         with s1:
             st.markdown('''
                 <div class="card-box">
-                    <i class="bi bi-cpu" style="font-size: 1.8rem; color: #38bdf8;"></i>
+                    <i class="bi bi-cpu" style="font-size: 1.8rem; color: #ffc2d1;"></i>
                     <div class="service-title">JASA HEN PS4</div>
                     <div class="price-badge">50K</div>
                     <ul style="font-size: 0.82rem; padding-left: 18px; margin: 10px 0 0 0; color: #e2e8f0; line-height: 1.6;">
@@ -549,7 +591,7 @@ def main():
         with s2:
             st.markdown('''
                 <div class="card-box">
-                    <i class="bi bi-thermometer-half" style="font-size: 1.8rem; color: #38bdf8;"></i>
+                    <i class="bi bi-thermometer-half" style="font-size: 1.8rem; color: #ffc2d1;"></i>
                     <div class="service-title">GANTI PASTA THERMAL</div>
                     <div class="price-badge">250RB</div>
                     <ul style="font-size: 0.82rem; padding-left: 18px; margin: 10px 0 0 0; color: #e2e8f0; line-height: 1.6;">
@@ -563,7 +605,7 @@ def main():
         with s3:
             st.markdown('''
                 <div class="card-box">
-                    <i class="bi bi-joystick" style="font-size: 1.8rem; color: #38bdf8;"></i>
+                    <i class="bi bi-joystick" style="font-size: 1.8rem; color: #ffc2d1;"></i>
                     <div class="service-title">SERVIS STIK PS4</div>
                     <div class="price-badge" style="font-size: 1.6rem; margin-bottom: 6px;">KONSULTASI</div>
                     <ul style="font-size: 0.82rem; padding-left: 18px; margin: 6px 0 0 0; color: #e2e8f0; line-height: 1.6;">
@@ -658,7 +700,7 @@ def main():
         with ex1:
             st.markdown(layered_box("ANDROID APPS & STREAMING", "bi-android2",
                                     filter_list(ANDROID_SERVICES, qe),
-                                    number_color="#10b981", title_color="#34d399", tag="Aktif"), unsafe_allow_html=True)
+                                    number_color="#ffe08a", title_color="#ffe08a", tag="Aktif"), unsafe_allow_html=True)
         with ex2:
             st.markdown(layered_box("NINTENDO SWITCH SUB INDO", "bi-nintendo-switch",
                                     filter_list(SWITCH_GAMES, qe),
@@ -674,7 +716,7 @@ def main():
         st.markdown('''
             <div style="margin-bottom: 8px;">
                 <small style="color: #64748b; letter-spacing: 1px; font-weight:700;">LOKASI WORKSHOP</small>
-                <div style="font-weight: 800; font-size: 1.25rem; color: #0a2a5e; margin-top: 4px;">
+                <div style="font-weight: 800; font-size: 1.25rem; color: #7b1534; margin-top: 4px;">
                     <i class="bi bi-geo-alt-fill" style="color: #c8264d;"></i> PALEMBANG
                 </div>
                 <div style="font-size: 0.88rem; color: #475569; margin-top: 2px;">
@@ -720,7 +762,7 @@ def main():
         <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 40px; padding: 15px 0; border-top: 1px solid #e2e8f0; color: #64748b; font-size: 0.8rem; font-weight:600;">
             <div><b>MEDY5TATION</b></div>
             <div>&ldquo; GAME IS ALWAYS A GOOD IDEA &rdquo;</div>
-            <div style="letter-spacing: 2px; color: #002d72;">&#9651; &#9675; &#10005; &#9633; PLAY &bull; SHARE &bull; TOGETHER</div>
+            <div style="letter-spacing: 2px; color: #7b1534;">&#9651; &#9675; &#10005; &#9633; PLAY &bull; SHARE &bull; TOGETHER</div>
         </div>
     ''', unsafe_allow_html=True)
 
