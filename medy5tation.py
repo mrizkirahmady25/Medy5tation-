@@ -16,14 +16,15 @@ def set_page_styling():
         layout="wide",
         initial_sidebar_state="collapsed",
     )
-    # CDN Icons
+    # CDN Icons Bootstrap
     st.markdown('<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">', unsafe_allow_html=True)
     
-    # Custom CSS: Latar luar putih, tabel/kotak berwarna Biru Tua gelap dengan font warna awal (terang)
+    # Custom CSS Penuh: Latar Putih Bersih + Konten Deep Navy + Font Kontras
     custom_css = """
         <style>
         @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700;800&family=Satisfy&display=swap');
 
+        /* Background Utama Halaman */
         .stApp {
             background-color: #f8fafc !important;
             color: #0f172a !important;
@@ -42,7 +43,7 @@ def set_page_styling():
             border-radius: 12px;
             display: block;
             margin: 0 auto;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+            box-shadow: 0 4px 20px rgba(0, 45, 114, 0.15);
         }
         .cursive-title {
             font-family: 'Satisfy', cursive !important;
@@ -54,7 +55,7 @@ def set_page_styling():
         }
         .cursive-subtitle {
             font-family: 'Satisfy', cursive !important;
-            color: #00d2ff !important;
+            color: #002d72 !important;
             font-size: 2.2rem;
             line-height: 1.1;
             margin: 0;
@@ -63,13 +64,13 @@ def set_page_styling():
         .brand-subtitle {
             font-size: 0.95rem;
             letter-spacing: 4px;
-            color: #64748b;
+            color: #002d72;
             margin-top: 8px;
             margin-bottom: 20px;
-            font-weight: 700;
+            font-weight: 800;
         }
 
-        /* Bar Fitur Atas - Tema Biru Tua dengan Teks Putih */
+        /* Bar Fitur Atas */
         .feature-bar {
             display: flex;
             justify-content: space-around;
@@ -77,11 +78,11 @@ def set_page_styling():
             margin-bottom: 25px;
             flex-wrap: wrap;
             gap: 12px;
-            background: #111827;
-            border: 1px solid #1f2937;
+            background: #0a192f;
+            border: 2px solid #002d72;
             border-radius: 16px;
             padding: 14px 10px;
-            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 8px 24px rgba(0, 45, 114, 0.18);
         }
         .feature-item {
             display: flex;
@@ -91,13 +92,57 @@ def set_page_styling():
             color: #ffffff !important;
         }
 
-        /* Kartu / Kotak Tabel: Latar Biru Tua Gelap, Teks Warna Asli (Putih & Terang) */
+        /* Navigasi Tab Menu: Teks Biru Tua Tegas, Tidak Transparan */
+        div[data-baseweb="tab-list"] {
+            gap: 12px !important;
+            justify-content: center !important;
+            padding-bottom: 16px !important;
+            border-bottom: 2px solid #cbd5e1 !important;
+        }
+        
+        div[data-baseweb="tab"] {
+            border-radius: 10px !important;
+            padding: 10px 24px !important;
+            background-color: #e2e8f0 !important;
+            border: 2px solid #94a3b8 !important;
+            transition: all 0.2s ease-in-out !important;
+        }
+        
+        div[data-baseweb="tab"] p, 
+        div[data-baseweb="tab"] span {
+            color: #002d72 !important;
+            font-weight: 800 !important;
+            font-size: 1rem !important;
+        }
+
+        div[data-baseweb="tab"]:hover {
+            background-color: #cbd5e1 !important;
+            border-color: #002d72 !important;
+        }
+
+        div[data-baseweb="tab"][aria-selected="true"] {
+            background-color: #002d72 !important;
+            border-color: #002d72 !important;
+            box-shadow: 0 4px 14px rgba(0, 45, 114, 0.35) !important;
+        }
+        
+        div[data-baseweb="tab"][aria-selected="true"] p,
+        div[data-baseweb="tab"][aria-selected="true"] span {
+            color: #ffffff !important;
+            font-weight: 800 !important;
+        }
+
+        div[data-baseweb="tab-highlight"] {
+            background-color: transparent !important;
+        }
+
+        /* Kartu Konten: Latar Deep Navy dengan Font Terang & Tajam */
         .card-box {
             border-radius: 14px;
             padding: 18px;
             margin-bottom: 15px;
             height: 100%;
-            background: #111827 !important;
+            background: #0a192f !important;
             color: #ffffff !important;
             transition: transform 0.2s, box-shadow 0.2s;
         }
@@ -106,28 +151,28 @@ def set_page_styling():
         }
         
         .card-crimson {
-            border: 1.5px solid #ff2a70 !important;
-            box-shadow: 0 6px 20px rgba(255, 42, 112, 0.2);
+            border: 2px solid #ff2a70 !important;
+            box-shadow: 0 6px 20px rgba(255, 42, 112, 0.25);
         }
         .card-cyan {
-            border: 1.5px solid #00d2ff !important;
-            box-shadow: 0 6px 20px rgba(0, 210, 255, 0.2);
+            border: 2px solid #00d2ff !important;
+            box-shadow: 0 6px 20px rgba(0, 210, 255, 0.25);
         }
         .card-purple {
-            border: 1.5px solid #a855f7 !important;
-            box-shadow: 0 6px 20px rgba(168, 85, 247, 0.2);
+            border: 2px solid #a855f7 !important;
+            box-shadow: 0 6px 20px rgba(168, 85, 247, 0.25);
         }
         .card-amber {
-            border: 1.5px solid #f59e0b !important;
-            box-shadow: 0 6px 20px rgba(245, 158, 11, 0.2);
+            border: 2px solid #f59e0b !important;
+            box-shadow: 0 6px 20px rgba(245, 158, 11, 0.25);
         }
         .card-emerald {
-            border: 1.5px solid #10b981 !important;
-            box-shadow: 0 6px 20px rgba(16, 185, 129, 0.2);
+            border: 2px solid #10b981 !important;
+            box-shadow: 0 6px 20px rgba(16, 185, 129, 0.25);
         }
         .card-pink {
-            border: 1.5px solid #ec4899 !important;
-            box-shadow: 0 6px 20px rgba(236, 72, 153, 0.2);
+            border: 2px solid #ec4899 !important;
+            box-shadow: 0 6px 20px rgba(236, 72, 153, 0.25);
         }
 
         .price-badge-crimson { color: #ff2a70 !important; font-size: 2.3rem; font-weight: 800; line-height: 1; }
@@ -136,17 +181,17 @@ def set_page_styling():
 
         .service-title {
             font-size: 0.95rem;
-            font-weight: 700;
+            font-weight: 800;
             text-transform: uppercase;
             margin-top: 8px;
             margin-bottom: 8px;
             letter-spacing: 0.5px;
         }
 
-        /* Kotak / Badge List Game - Latar Gelap & Teks Putih */
+        /* Kotak List Game */
         .game-badge {
-            background: #111827 !important;
-            border: 1px solid #1f2937 !important;
+            background: #0a192f !important;
+            border: 1px solid #1e293b !important;
             border-radius: 8px;
             padding: 8px 12px;
             margin-bottom: 8px;
@@ -157,17 +202,17 @@ def set_page_styling():
             transition: all 0.2s;
         }
         .game-badge:hover {
-            border-color: #ff2a70 !important;
-            background: #1f293d !important;
+            border-color: #00d2ff !important;
+            background: #112240 !important;
         }
         .game-num {
-            color: #ff2a70 !important;
+            color: #00d2ff !important;
             font-weight: 800;
             font-size: 0.85rem;
             min-width: 28px;
         }
 
-        /* Social Link Buttons */
+        /* Tombol Media Sosial */
         .social-link {
             display: inline-flex;
             align-items: center;
@@ -175,7 +220,7 @@ def set_page_styling():
             gap: 8px;
             padding: 10px 16px;
             border-radius: 10px;
-            font-weight: 600;
+            font-weight: 700;
             text-decoration: none !important;
             font-size: 0.9rem;
             transition: opacity 0.2s, transform 0.2s;
@@ -189,30 +234,9 @@ def set_page_styling():
         }
         .btn-wa { background: linear-gradient(135deg, #25D366, #128C7E); color: white !important; }
         .btn-shopee { background: linear-gradient(135deg, #EE4D2D, #ff5722); color: white !important; }
-        .btn-tiktok { background: #000000; border: 1px solid #374151; color: white !important; }
+        .btn-tiktok { background: #000000; border: 1px solid #334155; color: white !important; }
         .btn-ig { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); color: white !important; }
         .btn-yt { background: linear-gradient(135deg, #FF0000, #cc0000); color: white !important; }
-
-        /* Custom Tabs Styling: Tab Biru Tua Modern */
-        div[data-baseweb="tab-list"] {
-            gap: 8px;
-            justify-content: center;
-            padding-bottom: 12px;
-        }
-        div[data-baseweb="tab"] {
-            border-radius: 8px !important;
-            padding: 8px 20px !important;
-            font-weight: 700 !important;
-            background-color: #111827 !important;
-            color: #94a3b8 !important;
-            border: 1px solid #1f2937 !important;
-        }
-        div[data-baseweb="tab"][aria-selected="true"] {
-            background-color: #002d72 !important;
-            color: #ffffff !important;
-            border-color: #00d2ff !important;
-            box-shadow: 0 4px 12px rgba(0, 45, 114, 0.3) !important;
-        }
         </style>
     """
     st.markdown(custom_css, unsafe_allow_html=True)
@@ -286,21 +310,21 @@ def main():
         else:
             st.markdown('''
                 <div class="brand-container">
-                    <i class="bi bi-controller" style="font-size: 3.2rem; color: #ff2a70;"></i>
-                    <h1 style="letter-spacing: 4px; margin: 0; font-size: 3rem; color: #0f172a;">MEDY5TATION</h1>
+                    <i class="bi bi-controller" style="font-size: 3.2rem; color: #002d72;"></i>
+                    <h1 style="letter-spacing: 4px; margin: 0; font-size: 3rem; color: #002d72;">MEDY5TATION</h1>
                     <div class="brand-subtitle">PLAY MORE • GAME TOGETHER</div>
                 </div>
             ''', unsafe_allow_html=True)
 
     with col_h3:
         st.markdown('''
-            <div style="text-align: right; color: #64748b; font-size: 0.85rem; margin-bottom: 8px;">
+            <div style="text-align: right; color: #002d72; font-size: 0.85rem; margin-bottom: 8px;">
                 <b>PS4 &bull; PS3 &bull; SWITCH &bull; ANDROID</b>
             </div>
             <p class="cursive-subtitle">Game<br>Tanpa<br>Batas</p>
         ''', unsafe_allow_html=True)
 
-    # -- BAR FITUR UTAMA (Latar Biru Tua, Teks Putih Terang) --
+    # -- BAR FITUR UTAMA (Latar Deep Navy, Teks Putih Terang) --
     st.markdown('''
         <div class="feature-bar">
             <div class="feature-item"><i class="bi bi-disc" style="font-size: 1.6rem; color: #ff2a70;"></i><small style="font-weight:700;">GAME ORIGINAL</small></div>
@@ -311,7 +335,7 @@ def main():
         </div>
     ''', unsafe_allow_html=True)
 
-    # -- NAVIGASI MENU / TABS --
+    # -- NAVIGASI MENU / TABS (Font Biru Tua, Jelas & Tegas) --
     tab_beranda, tab_games, tab_bola, tab_extra = st.tabs([
         "🏠 Paket & Layanan",
         f"🎮 List Game Sub Indo ({len(PS4_GAMES)})",
@@ -355,11 +379,11 @@ def main():
                     <div class="service-title" style="color: #a855f7;">HDD FULL GAME (PKG/PNP)</div>
                     <div style="display: flex; justify-content: space-around; margin-top: 12px;">
                         <div>
-                            <span style="background:white; color:#111827; padding:3px 8px; border-radius:4px; font-size:0.75rem; font-weight:800;">500GB</span>
+                            <span style="background:white; color:#0a192f; padding:3px 8px; border-radius:4px; font-size:0.75rem; font-weight:800;">500GB</span>
                             <div style="color:#a855f7; font-size:1.6rem; font-weight:800; margin-top:4px;">350RB</div>
                         </div>
                         <div>
-                            <span style="background:white; color:#111827; padding:3px 8px; border-radius:4px; font-size:0.75rem; font-weight:800;">1TB</span>
+                            <span style="background:white; color:#0a192f; padding:3px 8px; border-radius:4px; font-size:0.75rem; font-weight:800;">1TB</span>
                             <div style="color:#a855f7; font-size:1.6rem; font-weight:800; margin-top:4px;">550RB</div>
                         </div>
                     </div>
@@ -504,7 +528,7 @@ def main():
 
         with ex2:
             st.markdown('''
-                <div class="card-box" style="border: 1.5px solid #ef4444; box-shadow: 0 6px 20px rgba(239, 68, 68, 0.2);">
+                <div class="card-box" style="border: 1.5px solid #ef4444; box-shadow: 0 6px 20px rgba(239, 68, 68, 0.25);">
                     <div class="service-title" style="color: #ef4444; font-size: 1.1rem;">
                         <i class="bi bi-nintendo-switch"></i> NINTENDO SWITCH SUB INDO
                     </div>
@@ -525,11 +549,11 @@ def main():
     with sec_lokasi:
         st.markdown('''
             <div style="margin-bottom: 8px;">
-                <small style="color: #0f172a; letter-spacing: 1px; font-weight:800;">LOKASI WORKSHOP</small>
-                <div style="font-weight: 800; font-size: 1.25rem; color: #0f172a; margin-top: 4px;">
+                <small style="color: #002d72; letter-spacing: 1px; font-weight:800;">LOKASI WORKSHOP</small>
+                <div style="font-weight: 800; font-size: 1.25rem; color: #002d72; margin-top: 4px;">
                     <i class="bi bi-geo-alt-fill" style="color: #ff2a70;"></i> PALEMBANG
                 </div>
-                <div style="font-size: 0.88rem; color: #475569; margin-top: 2px; font-weight:600;">
+                <div style="font-size: 0.88rem; color: #334155; margin-top: 2px; font-weight:600;">
                     TEGAL BINANGUN SASANA PATRA
                 </div>
             </div>
@@ -537,7 +561,7 @@ def main():
 
     with sec_order:
         st.markdown('''
-            <small style="color: #0f172a; letter-spacing: 1px; font-weight:800;">ORDER & STORE</small><br>
+            <small style="color: #002d72; letter-spacing: 1px; font-weight:800;">ORDER & STORE</small><br>
             <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 8px;">
                 <a href="https://wa.me/6282289421650?text=" target="_blank" class="social-link btn-wa">
                     <i class="bi bi-whatsapp"></i> Chat WhatsApp
@@ -550,7 +574,7 @@ def main():
 
     with sec_social:
         st.markdown('''
-            <small style="color: #0f172a; letter-spacing: 1px; font-weight:800;">SOSIAL MEDIA</small><br>
+            <small style="color: #002d72; letter-spacing: 1px; font-weight:800;">SOSIAL MEDIA</small><br>
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 8px;">
                 <a href="https://www.tiktok.com/@xtboy?_r=1&_t=ZS-9AIx1XJuxP8" target="_blank" class="social-link btn-tiktok">
                     <i class="bi bi-tiktok"></i> TikTok
@@ -564,9 +588,9 @@ def main():
             </a>
         ''', unsafe_allow_html=True)
 
-    # Bottom Footer
+    # Bottom Footer PlayStation Shape
     st.markdown('''
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 40px; padding: 15px 0; border-top: 2px solid #cbd5e1; color: #475569; font-size: 0.8rem; font-weight:700;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 40px; padding: 15px 0; border-top: 2px solid #cbd5e1; color: #002d72; font-size: 0.85rem; font-weight:700;">
             <div><b>MEDY5TATION</b></div>
             <div>&ldquo; GAME IS ALWAYS A GOOD IDEA &rdquo;</div>
             <div style="letter-spacing: 2px; color: #ff2a70;">&#9651; &#9675; &#10005; &#9633; PLAY &bull; SHARE &bull; TOGETHER</div>
