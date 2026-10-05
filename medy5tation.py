@@ -91,8 +91,8 @@ def set_page_styling():
             margin-bottom: 25px;
             flex-wrap: wrap;
             gap: 12px;
-            background: linear-gradient(120deg, #001f3f, #1e1b4b 60%, #3b0764) !important;
-            border: 1.5px solid #1e3a8a !important;
+            background: linear-gradient(120deg, #064e3b, #065f46 60%, #047857) !important;
+            border: 1.5px solid #10b981 !important;
             border-radius: 16px;
             padding: 14px 10px;
             box-shadow: 0 4px 12px rgba(0, 31, 63, 0.2);
@@ -129,8 +129,8 @@ def set_page_styling():
         [data-testid="stTabs"] div[data-baseweb="tab"] {
             border-radius: 8px !important;
             padding: 10px 20px !important;
-            background-color: #002244 !important;
-            border: 1.5px solid #1e3a8a !important;
+            background-color: #064e3b !important;
+            border: 1.5px solid #10b981 !important;
             transition: all 0.2s ease-in-out !important;
         }
         [data-testid="stTabs"] div[data-baseweb="tab"] p,
@@ -140,7 +140,7 @@ def set_page_styling():
             font-size: 0.9rem !important;
         }
         [data-testid="stTabs"] div[data-baseweb="tab"]:hover {
-            background-color: #003366 !important;
+            background-color: #065f46 !important;
             border-color: #38bdf8 !important;
             transform: translateY(-2px);
         }
