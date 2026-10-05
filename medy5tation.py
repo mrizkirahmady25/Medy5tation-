@@ -25,10 +25,10 @@ def set_page_styling():
         <style>
         @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700;800&family=Satisfy&display=swap');
 
-        /* Background Utama Putih */
+        /* Background Utama Merah */
         .stApp {
-            background-color: #ffffff !important;
-            color: #0f172a !important;
+            background-color: #b91c1c !important;
+            color: #ffffff !important;
             font-family: 'Kanit', sans-serif !important;
         }
 
@@ -55,7 +55,7 @@ def set_page_styling():
         }
         .cursive-subtitle {
             font-family: 'Satisfy', cursive !important;
-            color: #002d72 !important;
+            color: #fde68a !important;
             font-size: 2.2rem;
             line-height: 1.1;
             margin: 0;
@@ -64,7 +64,7 @@ def set_page_styling():
         .brand-subtitle {
             font-size: 0.95rem;
             letter-spacing: 4px;
-            color: #64748b;
+            color: #fecaca;
             margin-top: 8px;
             margin-bottom: 20px;
             font-weight: 700;
@@ -424,15 +424,15 @@ def main():
         else:
             st.markdown('''
                 <div class="brand-container">
-                    <i class="bi bi-controller" style="font-size: 3.2rem; color: #002244;"></i>
-                    <h1 style="letter-spacing: 4px; margin: 0; font-size: 3rem; color: #001f3f;">MEDY5TATION</h1>
+                    <i class="bi bi-controller" style="font-size: 3.2rem; color: #ffffff;"></i>
+                    <h1 style="letter-spacing: 4px; margin: 0; font-size: 3rem; color: #ffffff;">MEDY5TATION</h1>
                     <div class="brand-subtitle">PLAY MORE • GAME TOGETHER</div>
                 </div>
             ''', unsafe_allow_html=True)
 
     with col_h3:
         st.markdown('''
-            <div style="text-align: right; color: #002d72; font-size: 0.85rem; margin-bottom: 8px;">
+            <div style="text-align: right; color: #fde68a; font-size: 0.85rem; margin-bottom: 8px;">
                 <b>PS4 &bull; PS3 &bull; SWITCH &bull; ANDROID</b>
             </div>
             <p class="cursive-subtitle">Game<br>Tanpa<br>Batas</p>
@@ -738,18 +738,18 @@ def main():
                 st.write(a)
 
     # -- FOOTER & KONTAK LENGKAP --
-    st.markdown('<hr style="border-color: #e2e8f0; margin: 35px 0 25px 0;">', unsafe_allow_html=True)
+    st.markdown('<hr style="border-color: rgba(255,255,255,0.3); margin: 35px 0 25px 0;">', unsafe_allow_html=True)
 
     sec_lokasi, sec_order, sec_social = st.columns([1.5, 2, 2.5])
 
     with sec_lokasi:
         st.markdown('''
             <div style="margin-bottom: 8px;">
-                <small style="color: #64748b; letter-spacing: 1px; font-weight:700;">LOKASI WORKSHOP</small>
-                <div style="font-weight: 800; font-size: 1.25rem; color: #001f3f; margin-top: 4px;">
-                    <i class="bi bi-geo-alt-fill" style="color: #e0115f;"></i> PALEMBANG
+                <small style="color: #fecaca; letter-spacing: 1px; font-weight:700;">LOKASI WORKSHOP</small>
+                <div style="font-weight: 800; font-size: 1.25rem; color: #ffffff; margin-top: 4px;">
+                    <i class="bi bi-geo-alt-fill" style="color: #fde68a;"></i> PALEMBANG
                 </div>
-                <div style="font-size: 0.88rem; color: #475569; margin-top: 2px;">
+                <div style="font-size: 0.88rem; color: #fee2e2; margin-top: 2px;">
                     TEGAL BINANGUN SASANA PATRA
                 </div>
             </div>
@@ -757,7 +757,7 @@ def main():
 
     with sec_order:
         st.markdown('''
-            <small style="color: #64748b; letter-spacing: 1px; font-weight:700;">ORDER & STORE</small><br>
+            <small style="color: #fecaca; letter-spacing: 1px; font-weight:700;">ORDER & STORE</small><br>
             <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 8px;">
                 <a href="https://wa.me/6282289421650?text=" target="_blank" class="social-link btn-wa">
                     <i class="bi bi-whatsapp"></i> Chat WhatsApp
@@ -770,7 +770,7 @@ def main():
 
     with sec_social:
         st.markdown('''
-            <small style="color: #64748b; letter-spacing: 1px; font-weight:700;">SOSIAL MEDIA</small><br>
+            <small style="color: #fecaca; letter-spacing: 1px; font-weight:700;">SOSIAL MEDIA</small><br>
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 8px;">
                 <a href="https://www.tiktok.com/@xtboy?_r=1&_t=ZS-9AIx1XJuxP8" target="_blank" class="social-link btn-tiktok">
                     <i class="bi bi-tiktok"></i> TikTok
@@ -786,10 +786,10 @@ def main():
 
     # Bottom Footer
     st.markdown('''
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 40px; padding: 15px 0; border-top: 1px solid #e2e8f0; color: #64748b; font-size: 0.8rem; font-weight:600; flex-wrap: wrap; gap: 8px;">
-            <div><b>MEDY5TATION</b></div>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 40px; padding: 15px 0; border-top: 1px solid rgba(255,255,255,0.3); color: #fecaca; font-size: 0.8rem; font-weight:600; flex-wrap: wrap; gap: 8px;">
+            <div><b style="color:#ffffff;">MEDY5TATION</b></div>
             <div>&ldquo; GAME IS ALWAYS A GOOD IDEA &rdquo;</div>
-            <div style="letter-spacing: 2px; color: #002d72;">&#9651; &#9675; &#10005; &#9633; PLAY &bull; SHARE &bull; TOGETHER</div>
+            <div style="letter-spacing: 2px; color: #fde68a;">&#9651; &#9675; &#10005; &#9633; PLAY &bull; SHARE &bull; TOGETHER</div>
         </div>
     ''', unsafe_allow_html=True)
 
