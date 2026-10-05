@@ -12,6 +12,20 @@ def get_image_base64(path):
             return base64.b64encode(image_file.read()).decode()
     return None
 
+
+def controller_svg(color="#c8264d", width=150):
+    """[BARU] Gambar stik PS (outline merah hati seperti logo)"""
+    return f'''
+    <svg width="{width}" viewBox="0 0 200 120" fill="none" stroke="{color}" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+        <path d="M50 22 Q62 12 82 18 L118 18 Q138 12 150 22 Q176 30 188 76 Q196 108 174 110 Q158 110 144 86 L56 86 Q42 110 26 110 Q4 108 12 76 Q24 30 50 22 Z"/>
+        <rect x="76" y="26" width="48" height="28" rx="4"/>
+        <path d="M50 38 v20 M40 48 h20"/>
+        <circle cx="150" cy="38" r="4.5" stroke="#34d399"/><circle cx="164" cy="50" r="4.5"/>
+        <circle cx="150" cy="62" r="4.5"/><circle cx="136" cy="50" r="4.5"/>
+        <circle cx="82" cy="74" r="11"/><circle cx="118" cy="74" r="11"/>
+        <path d="M92 60 h16"/>
+    </svg>'''
+
 def wa_link(text=""):
     """[BARU] Membuat link WhatsApp dengan pesan otomatis"""
     return f"https://wa.me/{WA_NUMBER}?text={quote(text)}"
@@ -38,7 +52,8 @@ def set_page_styling():
             --navy-3: #164a94;
             --navy-line: #1e4fa3;
             --accent: #38bdf8;
-            --pink: #e0115f;
+            --pink: #c8264d;
+            --heart: #c8264d;
         }
 
         /* Background Utama Putih */
@@ -63,7 +78,7 @@ def set_page_styling():
         }
         .cursive-title {
             font-family: 'Satisfy', cursive !important;
-            color: #e0115f !important;
+            color: #c8264d !important;
             font-size: 2.8rem;
             line-height: 1.1;
             margin: 0;
@@ -115,7 +130,7 @@ def set_page_styling():
         }
 
         /* TAB NAVIGATION - Layer luar (wadah) + Box tiap tab Biru Tua */
-        [data-testid="stTabs"] div[data-baseweb="tab-list"] {
+        [data-baseweb="tab-list"] {
             gap: 12px !important;
             justify-content: center !important;
             padding: 10px !important;
@@ -126,7 +141,7 @@ def set_page_styling():
             box-shadow: 0 4px 12px rgba(10, 42, 94, 0.25);
             margin-bottom: 18px;
         }
-        [data-testid="stTabs"] div[data-baseweb="tab"] {
+        [data-baseweb="tab"] {
             border-radius: 10px !important;
             padding: 10px 24px !important;
             height: auto !important;
@@ -134,23 +149,23 @@ def set_page_styling():
             border: 1.5px solid var(--navy-line) !important;
             transition: all 0.2s ease-in-out !important;
         }
-        [data-testid="stTabs"] div[data-baseweb="tab"] p,
-        [data-testid="stTabs"] div[data-baseweb="tab"] span {
+        [data-baseweb="tab"] p,
+        [data-baseweb="tab"] span {
             color: #ffffff !important;
             font-weight: 700 !important;
             font-size: 0.95rem !important;
         }
-        [data-testid="stTabs"] div[data-baseweb="tab"]:hover {
+        [data-baseweb="tab"]:hover {
             background-color: var(--navy-3) !important;
             border-color: var(--accent) !important;
             transform: translateY(-2px);
         }
-        [data-testid="stTabs"] div[data-baseweb="tab"][aria-selected="true"] {
-            background-color: #e0115f !important; /* Aksen Aktif Magenta/Merah */
-            border-color: #e0115f !important;
+        [data-baseweb="tab"][aria-selected="true"] {
+            background-color: #c8264d !important; /* Aksen Aktif Magenta/Merah */
+            border-color: #c8264d !important;
         }
-        [data-testid="stTabs"] div[data-baseweb="tab-highlight"],
-        [data-testid="stTabs"] div[data-baseweb="tab-border"] {
+        [data-baseweb="tab-highlight"],
+        [data-baseweb="tab-border"] {
             background-color: transparent !important;
         }
 
@@ -171,10 +186,10 @@ def set_page_styling():
             box-shadow: 0 8px 20px rgba(10, 42, 94, 0.28);
         }
         .card-featured {
-            border: 1.5px solid #e0115f !important;
+            border: 1.5px solid #c8264d !important;
         }
         .price-badge {
-            color: #ff6b95 !important;
+            color: #ff8fa5 !important;
             font-size: 2.3rem;
             font-weight: 800;
             line-height: 1;
@@ -301,6 +316,19 @@ def set_page_styling():
         }
         [data-testid="stExpander"] summary p { color: #ffffff !important; font-weight: 600; }
         [data-testid="stExpander"] div[data-testid="stMarkdownContainer"] p { color: #e2e8f0; }
+
+        /* [BARU] Teks tab dipaksa putih (tidak tabrakan dengan background navy) */
+        [data-baseweb="tab"], [data-baseweb="tab"] *, button[role="tab"], button[role="tab"] * {
+            color: #ffffff !important;
+            opacity: 1 !important;
+        }
+        [data-baseweb="tab"][aria-selected="true"] { box-shadow: 0 4px 14px rgba(200, 38, 77, 0.45); }
+        /* [BARU] Aksen merah hati (sesuai logo) */
+        .layer-outer { border-top: 3px solid var(--heart); }
+        .card-box { border-top: 3px solid var(--heart) !important; }
+        .feature-bar { border-top: 3px solid var(--heart) !important; }
+        .brand-logo-img { border: 2px solid var(--heart); box-shadow: 0 6px 18px rgba(10, 42, 94, 0.3); }
+        .stick-wrap { text-align: center; opacity: 0.95; }
         </style>
     """
     st.markdown(custom_css, unsafe_allow_html=True)
@@ -394,6 +422,7 @@ def main():
     col_h1, col_h2, col_h3 = st.columns([1.2, 3, 1.2])
     with col_h1:
         st.markdown('<p class="cursive-title">Good Games<br>Better Days</p>', unsafe_allow_html=True)
+        st.markdown(f'<div class="stick-wrap" style="text-align:left;margin-top:10px;">{controller_svg(width=130)}</div>', unsafe_allow_html=True)
     with col_h2:
         logo_base64 = None
         for filename in ["logo.png", "logo.jpg", "logo.jpeg"]:
@@ -411,7 +440,7 @@ def main():
         else:
             st.markdown('''
                 <div class="brand-container">
-                    <i class="bi bi-controller" style="font-size: 3.2rem; color: #0a2a5e;"></i>
+                    <div class="stick-wrap">'''+controller_svg(width=120)+'''</div>
                     <h1 style="letter-spacing: 4px; margin: 0; font-size: 3rem; color: #0a2a5e;">MEDY5TATION</h1>
                     <div class="brand-subtitle">PLAY MORE • GAME TOGETHER</div>
                 </div>
@@ -475,7 +504,7 @@ def main():
                     <div class="service-title">PKG & INSTAL DI PS</div>
                     <div class="price-badge">25K</div>
                     <small style="color: #bae6fd;">PER GAME</small>
-                    <div style="margin-top: 10px; background-color: #e0115f; padding: 6px; border-radius: 6px; font-weight: 700; font-size: 0.85rem; color: white;">
+                    <div style="margin-top: 10px; background-color: #c8264d; padding: 6px; border-radius: 6px; font-weight: 700; font-size: 0.85rem; color: white;">
                         3 GAME 65K
                     </div>
                     <small style="color: #e2e8f0; display: block; margin-top: 8px;">Lokasi Palembang</small>
@@ -490,11 +519,11 @@ def main():
                     <div style="display: flex; justify-content: space-around; margin-top: 10px;">
                         <div>
                             <span style="background:white; color:#0a2a5e; padding:3px 8px; border-radius:4px; font-size:0.75rem; font-weight:bold;">500GB</span>
-                            <div style="color:#ff6b95; font-size:1.6rem; font-weight:800; margin-top:4px;">350RB</div>
+                            <div style="color:#ff8fa5; font-size:1.6rem; font-weight:800; margin-top:4px;">350RB</div>
                         </div>
                         <div>
                             <span style="background:white; color:#0a2a5e; padding:3px 8px; border-radius:4px; font-size:0.75rem; font-weight:bold;">1TB</span>
-                            <div style="color:#ff6b95; font-size:1.6rem; font-weight:800; margin-top:4px;">550RB</div>
+                            <div style="color:#ff8fa5; font-size:1.6rem; font-weight:800; margin-top:4px;">550RB</div>
                         </div>
                     </div>
                     <small style="color: #e2e8f0; display: block; margin-top: 10px;">Plug and Play / Siap Main</small>
@@ -633,7 +662,7 @@ def main():
         with ex2:
             st.markdown(layered_box("NINTENDO SWITCH SUB INDO", "bi-nintendo-switch",
                                     filter_list(SWITCH_GAMES, qe),
-                                    number_color="#ff6b95"), unsafe_allow_html=True)
+                                    number_color="#ff8fa5"), unsafe_allow_html=True)
         st.markdown(f'<a href="{wa_link("Halo, saya mau order layanan Android/Switch")}" target="_blank" class="social-link btn-wa" style="max-width:300px;"><i class="bi bi-whatsapp"></i> Order Android / Switch</a>', unsafe_allow_html=True)
 
     # -- FOOTER & KONTAK LENGKAP --
@@ -646,7 +675,7 @@ def main():
             <div style="margin-bottom: 8px;">
                 <small style="color: #64748b; letter-spacing: 1px; font-weight:700;">LOKASI WORKSHOP</small>
                 <div style="font-weight: 800; font-size: 1.25rem; color: #0a2a5e; margin-top: 4px;">
-                    <i class="bi bi-geo-alt-fill" style="color: #e0115f;"></i> PALEMBANG
+                    <i class="bi bi-geo-alt-fill" style="color: #c8264d;"></i> PALEMBANG
                 </div>
                 <div style="font-size: 0.88rem; color: #475569; margin-top: 2px;">
                     TEGAL BINANGUN SASANA PATRA
@@ -682,6 +711,9 @@ def main():
                 <i class="bi bi-youtube"></i> YouTube Channel
             </a>
         ''', unsafe_allow_html=True)
+
+    # [BARU] Stik PS di footer
+    st.markdown(f'<div class="stick-wrap" style="margin-top:30px;">{controller_svg(width=90)}</div>', unsafe_allow_html=True)
 
     # Bottom Footer
     st.markdown('''
